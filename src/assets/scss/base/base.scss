@@ -1,0 +1,20 @@
+a {
+    color: $color-primary;
+    text-decoration: none;
+}
+
+body {
+    background-color: $color-primary;
+    color: $color-default;
+    font-family: $font-family-default;
+    font-size: $font-size-default;
+    font-weight: $font-weight-light;
+}
+
+.container {
+    padding: 0 $value-container-padding;
+}
+
+ul {
+    padding: 0;
+}
