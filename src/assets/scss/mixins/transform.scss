@@ -1,0 +1,11 @@
+@mixin transform($expr) {
+    -webkit-transform: $expr;
+    -moz-transform: $expr;
+    -ms-transform: $expr;
+    -o-transform: $expr;
+    transform: $expr;
+}
+
+@mixin transform-reset() {
+    @include transform(none);
+}

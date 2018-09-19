@@ -1,0 +1,9 @@
+@mixin dimensions($d) {
+    width: $d;
+    height: $d;
+}
+
+@mixin dimensions($w, $h) {
+    width: $w;
+    height: $h;
+}
