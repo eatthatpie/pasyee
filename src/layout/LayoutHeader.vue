@@ -14,6 +14,7 @@
 import Hamburger from './../components/Hamburger'
 import Logo from './../components/Logo'
 import Navigation from './../components/Navigation'
+import _ from 'lodash'
 
 export default {
     components: {
@@ -25,9 +26,9 @@ export default {
         }
     },
     methods: {
-        toggleNav () {
+        toggleNav: _.throttle(function() {
             this.isNavOpen = !this.isNavOpen
-        }
+        }, 500)
     }
 }
 </script>
