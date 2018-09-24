@@ -7,8 +7,8 @@
                     <h3>Why not just generate some?</h3> -->
                     <h2>Generate Password</h2>
 
-                    <p>Your password strength</p>
                     <dynamometer :power="71" />
+                    <p class="contents-small">Your password strength</p>
                 </div>
             </contents>
 
@@ -16,7 +16,7 @@
 
             <lengthbar />
 
-            <button-round label="refresh" />
+            <button-round label="↻" />
 
             <filters />
         </div>
@@ -43,6 +43,6 @@ export default {
 @import './../assets/scss/variables/_variables.scss';
 
 .layout-main {
-    padding: 30px 0 0;
+    padding: 20px 0 0;
 }
 </style>
