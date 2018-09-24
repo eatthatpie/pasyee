@@ -1,10 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 a {
     color: $color-primary;
     text-decoration: none;
 }
 
 body {
-    background-color: $color-primary;
+    background: $color-primary linear-gradient(135deg, $color-primary, $color-primary, $color-primary-dark);
     color: $color-default;
     font-family: $font-family-default;
     font-size: $font-size-default;
@@ -18,6 +24,19 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: $font-weight-light;
     margin: 0 0 .8em;
+}
+
+html {
+    height: 100%;
+}
+
+p {
+    font-size: $font-size-default;
+    margin: 0;
+
+    & + & {
+        margin-top: .5em;
+    }
 }
 
 ul {
