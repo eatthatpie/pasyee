@@ -2,7 +2,7 @@
     <div class="password">
         ..poipoi6B^#
 
-        <small>(Tap to copy)</small>
+        <!-- <small>(Tap to copy)</small> -->
     </div>
 </template>
 
@@ -20,11 +20,11 @@ export default {
     font-family: $font-family-password;
     font-size: $font-size-password;
     text-align: center;
-    padding: 20px 0 0;
+    padding: 20px 0 40px;
 
-    small {
-        display: block;
-        font-size: 16px;
-    }
+    // small {
+    //     display: block;
+    //     font-size: 16px;
+    // }
 }
 </style>

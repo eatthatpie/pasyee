@@ -34,5 +34,9 @@ export default {
     &-center {
         text-align: center;
     }
+
+    &-small {
+        font-size: .75em;
+    }
 }
 </style>
