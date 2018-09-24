@@ -10,7 +10,7 @@ a {
 }
 
 body {
-    background: $color-primary linear-gradient(135deg, $color-primary, $color-primary, $color-primary-dark);
+    background: $color-primary linear-gradient(135deg, $color-primary, $color-primary-darker, $color-primary-dark);
     color: $color-default;
     font-family: $font-family-default;
     font-size: $font-size-default;
