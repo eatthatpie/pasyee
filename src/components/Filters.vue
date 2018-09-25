@@ -1,6 +1,6 @@
 <template>
     <div class="filters">
-        [filters]
+        other filters
     </div>
 </template>
 
@@ -15,6 +15,12 @@ export default {
 @import './../assets/scss/variables/_variables.scss';
 
 .filters {
+    background-color: $color-primary-light;
     text-align: center;
+    padding: 5px 0 5px;
+
+    [class^="icon-"] {
+        font-size: 32px;
+    }
 }
 </style>

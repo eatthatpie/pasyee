@@ -32,10 +32,10 @@ export default {
 
 .layout-footer {
     text-align: center;
-    padding: 30px 0 0;
+    padding: 50px 0 20px;
 
     &-text {
-        font-size: .8em;
+        font-size: .75em;
     }
 
     &-links {
@@ -46,7 +46,7 @@ export default {
             > li {
                 display: inline-block;
                 position: relative;
-                font-size: 1rem;
+                font-size: 15px;
 
                 &:nth-child(n + 2) {
                     margin-left: 24px;

@@ -1,6 +1,8 @@
 <template>
     <div class="button-round">
-        <a v-html="label"></a>
+        <a>
+            <slot />
+        </a>
     </div>
 </template>
 
@@ -21,10 +23,10 @@ export default {
 
 .button-round {
     text-align: center;
-    padding: 10px 0 20px;
+    padding: 30px 0 10px;
 
     a {
-        @include dimensions(85px, 85px);
+        @include dimensions(64px, 64px);
         @include border-radius(50%);
         background-color: $color-default;
         color: $color-primary;
@@ -32,8 +34,16 @@ export default {
         font-weight: $font-weight-bold;
         box-sizing: border-box;
         display: inline-block;
-        font-size: 68px;
-        padding-top: 2px;
+        font-size: 39px;
+        top: -17px;
+
+        [class^="icon-"] {
+            font-weight: $font-weight-bold;
+            color: $color-primary-darker;
+            position: relative;
+            font-size: 39px;
+            top: 12px;
+        }
     }
 }
 </style>
