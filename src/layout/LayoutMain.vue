@@ -16,9 +16,11 @@
 
             <lengthbar />
 
-            <button-round label="↻" />
-
             <filters />
+
+            <button-round>
+                <i class="icon-loop2"/>
+            </button-round>
         </div>
     </main>
 </template>
