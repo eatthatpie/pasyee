@@ -32,13 +32,15 @@ export default {
 
 .layout-footer {
     text-align: center;
-    padding: 50px 0 20px;
+    padding: 28px 0 20px;
 
     &-text {
         font-size: .75em;
     }
 
     &-links {
+        padding: 8px 0 0;
+        
         ul {
             list-style-type: none;
             font-size: 0;
