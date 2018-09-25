@@ -23,7 +23,7 @@ export default {
 
 .button-round {
     text-align: center;
-    padding: 30px 0 10px;
+    padding: 40px 0 10px;
 
     a {
         @include dimensions(64px, 64px);
@@ -34,6 +34,7 @@ export default {
         font-weight: $font-weight-bold;
         box-sizing: border-box;
         display: inline-block;
+        line-height: 39px;
         font-size: 39px;
         top: -17px;
 
@@ -41,6 +42,7 @@ export default {
             font-weight: $font-weight-bold;
             color: $color-primary-darker;
             position: relative;
+            line-height: 39px;
             font-size: 39px;
             top: 12px;
         }

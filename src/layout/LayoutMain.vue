@@ -7,8 +7,8 @@
                     <h3>Why not just generate some?</h3> -->
                     <h2>Generate Password</h2>
 
-                    <dynamometer :power="71" />
-                    <p class="contents-small">Your password strength</p>
+                    <dynamometer :power="dummyPower" />
+                    <p class="contents-small">Strength</p>
                 </div>
             </contents>
 
@@ -36,6 +36,16 @@ import Password from './../components/Password'
 export default {
     components: {
         ButtonRound, Contents, Dynamometer, Filters, Lengthbar, Password
+    },
+    data () {
+        return {
+            dummyPower: 71
+        }
+    },
+    mounted () {
+        setInterval(() => {
+            this.dummyPower = Math.ceil(100 * Math.random())
+        }, 1000)
     }
 }
 </script>

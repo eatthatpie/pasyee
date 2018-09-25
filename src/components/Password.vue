@@ -24,7 +24,7 @@ export default {
     font-size: $font-size-password;
     text-align: center;
     position: relative;
-    padding: 20px 0 40px;
+    padding: 25px 0 40px;
 
     &-pointer {
         @include dimensions(40px, 40px);

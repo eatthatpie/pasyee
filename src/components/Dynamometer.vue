@@ -26,6 +26,16 @@ export default {
 
             return out.join(' ')
         }
+    },
+    watch: {
+        power (current, previous) {
+            
+        }
+    },
+    methods: {
+        updateClasses () {
+
+        }
     }
 }
 </script>
@@ -35,7 +45,7 @@ export default {
 @import './../assets/scss/variables/_variables.scss';
 
 .dynamometer {
-    padding: 0 0 10px;
+    padding: 10px 0 3px;
     
     span {
         background-color: $color-primary-light;
@@ -44,8 +54,11 @@ export default {
         margin: 0 2px;
         width: 4px;
 
-        &:before {
+        &:before,
+        &:after {
             content: '';
+            @include transition();
+            @include transition-delay(.05s);
             @include position-cover();
             background-color: $color-default;
             opacity: 0;
@@ -66,18 +79,33 @@ export default {
                     &:before {
                         opacity: 1;
                     }
+
+                    &:after {
+                        animation: testanimation;
+                        animation-duration: .5s;
+                    }
                 }
             }
         }
     }
 
-    &.l9,
     &.l10 {
         span {
             &:before {
-                background-color: #009900;
+                background-color: #5cbe3e;
             }
         }
+    }
+}
+
+@keyframes testanimation {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        @include transform(scaleY(2.4));
+        opacity: 0;
     }
 }
 </style>
