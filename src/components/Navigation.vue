@@ -5,16 +5,16 @@
                 <a href="/">Generate Password</a>
             </li>
             <li>
-                <a href="/htpasswd">Generate Password For .htpasswd</a>
+                <a class="is-inactive" href="/htpasswd">Generate Password For .htpasswd</a>
             </li>
             <li>
-                <a href="/how-to-memorize-your-password">How To Memorize Your Passwords</a>
+                <a class="is-inactive" href="/how-to-memorize-your-password">How To Memorize Your Passwords</a>
             </li>
             <li>
                 <a href="https://github.com/eatthatpie/pasyee" target="_blank">Source on GitHub</a>
             </li>
             <li>
-                <a href="/send-feedback">Send Feedback</a>
+                <a class="is-inactive" href="/send-feedback">Send Feedback</a>
             </li>
         </ul>
     </div>
@@ -58,6 +58,10 @@ export default {
         > a {
             display: block;
             text-align: center;
+
+            &.is-inactive {
+                color: $color-secondary-muted;
+            }
         }
     }
 

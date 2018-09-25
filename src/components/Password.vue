@@ -1,8 +1,11 @@
 <template>
     <div class="password">
-        ..poipoi6B^#
-
-        <!-- <small>(Tap to copy)</small> -->
+        <div class="password-letters">
+            ..poipoi6B^#
+        </div>
+        <div class="password-pointer">
+            <i class="icon-point-up"/>
+        </div>
     </div>
 </template>
 
@@ -20,11 +23,23 @@ export default {
     font-family: $font-family-password;
     font-size: $font-size-password;
     text-align: center;
+    position: relative;
     padding: 20px 0 40px;
 
-    // small {
-    //     display: block;
-    //     font-size: 16px;
-    // }
+    &-pointer {
+        @include dimensions(40px, 40px);
+        @include border-radius(50%);
+        background-color: rgba($color-primary-dark, .3);
+        position: absolute;
+        left: 61%;
+        bottom: 12px;
+
+        [class^="icon-"] {
+            position: absolute;
+            top: 8px;
+            left: 7px;
+            font-size: 24px;
+        }
+    }
 }
 </style>

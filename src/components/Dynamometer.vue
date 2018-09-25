@@ -35,6 +35,8 @@ export default {
 @import './../assets/scss/variables/_variables.scss';
 
 .dynamometer {
+    padding: 0 0 10px;
+    
     span {
         background-color: $color-primary-light;
         display: inline-block;
