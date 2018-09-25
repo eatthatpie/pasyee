@@ -18,7 +18,7 @@ export default {
 @import './../assets/scss/variables/_variables.scss';
 
 .lengthbar {
-    padding: 30px 0 15px;
+    padding: 44px 0 15px;
     
     &-trace {
         @include dimensions(100%, 5px);
