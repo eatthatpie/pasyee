@@ -14,7 +14,7 @@
 
             <password />
 
-            <lengthbar />
+            <lengthbar @change="onLengthChange" />
 
             <filters />
 
@@ -40,6 +40,11 @@ export default {
     data () {
         return {
             dummyPower: 71
+        }
+    },
+    methods: {
+        onLengthChange (length) {
+            console.log('Password\'s length changed to ' + length)
         }
     },
     mounted () {
