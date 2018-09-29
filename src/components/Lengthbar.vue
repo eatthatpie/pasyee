@@ -151,7 +151,7 @@ export default {
 
         &-list {
             @include dimensions(100%, 17px);
-            @include transition(.2s);
+            @include transition(.15s);
             display: inline-block;
 
             > span {
@@ -164,7 +164,7 @@ export default {
     &.is-dragging {
         &:before {
             visibility: visible;
-            opacity: .65;
+            opacity: .5;
         }
     }
 
