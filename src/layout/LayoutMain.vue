@@ -14,11 +14,11 @@
 
             <password />
 
-            <lengthbar @change="onLengthChange" />
+            <lengthbar :min="6" :max="32" @change="onLengthChange" />
 
             <filters />
 
-            <button-round>
+            <button-round @click="onRefreshButtonClick">
                 <i class="icon-loop2"/>
             </button-round>
         </div>
@@ -45,6 +45,9 @@ export default {
     methods: {
         onLengthChange (length) {
             console.log('Password\'s length changed to ' + length)
+        },
+        onRefreshButtonClick () {
+            console.log('Refresh button clicked')
         }
     },
     mounted () {
@@ -60,6 +63,8 @@ export default {
 @import './../assets/scss/variables/_variables.scss';
 
 .layout-main {
+    position: relative;
     padding: 20px 0 0;
+    z-index: 2;
 }
 </style>
