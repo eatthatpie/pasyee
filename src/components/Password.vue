@@ -1,7 +1,10 @@
 <template>
-    <div class="password">
-        <div class="password-letters">
-            ..poipoi6B^#
+    <div :class="[ 'password', { 'is-busy': isBusy } ]">
+        <div class="password-container">
+            <div class="password-letters">
+                {{ password }}
+            </div>
+            <loader :is-busy="isBusy" />
         </div>
         <div class="password-pointer">
             <i class="icon-point-up"/>
@@ -10,8 +13,27 @@
 </template>
 
 <script>
-export default {
+import Loader from './Loader'
 
+export default {
+    components: {
+        Loader
+    },
+    data () {
+        return {
+            password: '..poipoi6B^#',
+            isBusy: false
+        }
+    },
+    mounted () {
+        setInterval(() => {
+            this.isBusy = true 
+
+            setTimeout(() => {
+                this.isBusy = false
+            }, 1000)
+        }, 2000)
+    }
 }
 </script>
 
@@ -26,6 +48,18 @@ export default {
     position: relative;
     padding: 25px 0 40px;
 
+    &-container {
+        position: relative;
+    }
+
+    &-letters {
+        @include transition(.3s);
+        @include transform(scale(1));
+        display: inline-block;
+        visibility: visible;
+        opacity: 1;
+    }
+
     &-pointer {
         @include dimensions(40px, 40px);
         @include border-radius(50%);
@@ -39,6 +73,14 @@ export default {
             top: 8px;
             left: 7px;
             font-size: 24px;
+        }
+    }
+
+    &.is-busy & {
+        &-letters {
+            @include transform(scale(.8));
+            visibility: hidden;
+            opacity: 0;
         }
     }
 }
