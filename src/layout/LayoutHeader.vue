@@ -40,7 +40,7 @@ export default {
 .layout-header {
     height: $value-header-height;
     position: relative;
-    z-index: 1;
+    z-index: 3;
 
     &:before {
         @include position-fixed-cover();

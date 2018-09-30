@@ -1,5 +1,5 @@
 <template>
-    <div class="button-round">
+    <div :class="[ 'button-round', { 'is-busy': isBusy } ]" @click="onClick">
         <a>
             <slot />
         </a>
@@ -7,12 +7,30 @@
 </template>
 
 <script>
+import _ from 'lodash'
+
 export default {
     props: {
         label: {
             type: String,
             default: 'button'
         }
+    },
+    data () {
+        return {
+            isBusy: false
+        }
+    },
+    methods: {
+        onClick: _.throttle(function () {
+            this.isBusy = true 
+
+            this.$emit('click')
+
+            setTimeout (() => {
+                this.isBusy = false
+            }, 601)
+        }, 601)
     }
 }
 </script>
@@ -26,6 +44,7 @@ export default {
     padding: 40px 0 10px;
 
     a {
+        @include transition();
         @include dimensions(64px, 64px);
         @include border-radius(50%);
         background-color: $color-default;
@@ -34,18 +53,42 @@ export default {
         font-weight: $font-weight-bold;
         box-sizing: border-box;
         display: inline-block;
+        position: relative;
         line-height: 39px;
         font-size: 39px;
         top: -17px;
+
+        &:active {
+            @include transform(scale(.95));
+        }
 
         [class^="icon-"] {
             font-weight: $font-weight-bold;
             color: $color-primary-darker;
             position: relative;
+            display: inline-block;
             line-height: 39px;
-            font-size: 39px;
-            top: 12px;
+            font-size: 38px;
+            top: 13px;
         }
+    }
+
+    &.is-busy {
+        a {
+            [class^="icon-"] {
+                animation-name: fullRotation;
+                animation-duration: .6s;
+                animation-timing-function: ease-in-out;
+            }
+        }
+    }
+}
+@keyframes fullRotation {
+    0% {
+        @include transform(rotate(0deg));
+    }
+    100% {
+        @include transform(rotate(360deg));
     }
 }
 </style>
