@@ -12,7 +12,7 @@
                 </div>
             </contents>
 
-            <password />
+            <password @copy="onPasswordCopy" />
 
             <lengthbar :min="6" :max="32" @change="onLengthChange" />
 
@@ -22,10 +22,13 @@
                 <i class="icon-loop2"/>
             </button-round>
         </div>
+
+        <alert ref="alert" />
     </main>
 </template>
 
 <script>
+import Alert from './../components/Alert'
 import ButtonRound from './../components/ButtonRound'
 import Contents from './../components/Contents'
 import Dynamometer from './../components/Dynamometer'
@@ -35,7 +38,7 @@ import Password from './../components/Password'
 
 export default {
     components: {
-        ButtonRound, Contents, Dynamometer, Filters, Lengthbar, Password
+        Alert, ButtonRound, Contents, Dynamometer, Filters, Lengthbar, Password
     },
     data () {
         return {
@@ -48,6 +51,9 @@ export default {
         },
         onRefreshButtonClick () {
             console.log('Refresh button clicked')
+        },
+        onPasswordCopy () {
+            this.$refs.alert.open('Password copied. Remember to remove it from the clipboard ASAP.')
         }
     },
     mounted () {

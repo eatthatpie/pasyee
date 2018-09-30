@@ -155,6 +155,7 @@ export default {
             display: inline-block;
 
             > span {
+                @include no-highlight();
                 display: block;
                 height: 17px;
             }

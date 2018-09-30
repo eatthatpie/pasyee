@@ -8,6 +8,17 @@
     top: calc(50% + #{$shift});
 }
 
+@mixin position-center-both-axis($shift: 0px) {
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: calc(50% + #{$shift});
+    left: calc(50% + #{$shift});
+}
+
 @mixin position-cover($d: 0) {
     position: absolute;
     top: $d;
