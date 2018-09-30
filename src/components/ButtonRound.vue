@@ -63,22 +63,26 @@ export default {
         }
 
         [class^="icon-"] {
+            @include position-center-both-axis();
             font-weight: $font-weight-bold;
             color: $color-primary-darker;
-            position: relative;
-            display: inline-block;
-            line-height: 39px;
+            line-height: 38px;
             font-size: 38px;
-            top: 13px;
+
+            &:before {
+                display: inline-block;
+            }
         }
     }
 
     &.is-busy {
         a {
             [class^="icon-"] {
-                animation-name: fullRotation;
-                animation-duration: .6s;
-                animation-timing-function: ease-in-out;
+                &:before {
+                    animation-name: fullRotation;
+                    animation-duration: .6s;
+                    animation-timing-function: ease-in-out;
+                }
             }
         }
     }

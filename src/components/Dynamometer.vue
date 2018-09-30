@@ -92,7 +92,7 @@ export default {
     &.l10 {
         span {
             &:before {
-                background-color: #5cbe3e;
+                background-color: $color-success-light;
             }
         }
     }

@@ -1,6 +1,6 @@
 <template>
-    <div :class="[ 'password', { 'is-busy': isBusy } ]">
-        <div class="password-container">
+    <div :class="[ 'password', { 'is-busy': isBusy, 'is-hint': isHint } ]">
+        <div class="password-container" @click="onClick">
             <div class="password-letters">
                 {{ password }}
             </div>
@@ -22,7 +22,15 @@ export default {
     data () {
         return {
             password: '..poipoi6B^#',
-            isBusy: false
+            isBusy: false,
+            isHint: true
+        }
+    },
+    methods: {
+        onClick () {
+            this.isHint = false
+            this.$copyText(this.password)
+            this.$emit('copy')
         }
     },
     mounted () {
@@ -65,8 +73,9 @@ export default {
         @include border-radius(50%);
         background-color: rgba($color-primary-dark, .3);
         position: absolute;
-        left: 61%;
-        bottom: 12px;
+        display: none;
+        left: calc(50% - 20px);
+        bottom: 15px;
 
         [class^="icon-"] {
             position: absolute;
@@ -83,5 +92,62 @@ export default {
             opacity: 0;
         }
     }
+
+    &.is-hint & {
+        &-letters {
+            animation-name: hintLetters;
+            animation-duration: 2.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+
+        &-pointer {
+            display: block;
+            animation-name: hintCursor;
+            animation-duration: 2.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+    }
+}
+
+@keyframes hintCursor {
+    0% { @include transform(translateY(15px)); opacity: 0; }
+    10% { opacity: 1; }
+    30% { @include transform(translateY(0)); }
+    35% { @include transform(none); }
+    42% { @include transform(scale(.9) translateY(-5px)); }
+    50% { @include transform(none); }
+    60% { opacity: 1; }
+    70% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@-webkit-keyframes hintCursor {
+    0% { @include transform(translateY(15px)); opacity: 0; }
+    10% { opacity: 1; }
+    30% { @include transform(translateY(0)); }
+    35% { @include transform(none); }
+    45% { @include transform(scale(.9) translateY(-5px)); }
+    55% { @include transform(none); }
+    60% { opacity: 1; }
+    70% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes hintLetters {
+    0% { @include transform(none); }
+    40% { @include transform(none); }
+    45% { @include transform(scale(.99)); }
+    50% { @include transform(none); }
+    100% { @include transform(none); }
+}
+
+@-webkit-keyframes hintLetters {
+    0% { @include transform(none); }
+    40% { @include transform(none); }
+    45% { @include transform(scale(.99)); }
+    50% { @include transform(none); }
+    100% { @include transform(none); }
 }
 </style>
