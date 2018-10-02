@@ -87,6 +87,7 @@ export default {
     &-item {
         @include transition();
         color: $color-default;
+        font-weight: $font-weight-bold;
         padding: 3px 0;
         opacity: 0;
     }
