@@ -16,7 +16,7 @@
 
             <lengthbar :min="6" :max="32" @change="onLengthChange" />
 
-            <filters />
+            <filters ref="filters" />
 
             <button-round @click="onRefreshButtonClick">
                 <i class="icon-loop2"/>
@@ -50,7 +50,9 @@ export default {
             console.log('Password\'s length changed to ' + length)
         },
         onRefreshButtonClick () {
-            console.log('Refresh button clicked')
+            setTimeout(() => {
+                this.$refs.filters.close()
+            }, 100)
         },
         onPasswordCopy () {
             this.$refs.alert.open('Password copied. Remember to remove it from the clipboard ASAP.')

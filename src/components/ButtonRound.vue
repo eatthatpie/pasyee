@@ -1,6 +1,6 @@
 <template>
-    <div :class="[ 'button-round', { 'is-busy': isBusy } ]" @click="onClick">
-        <a>
+    <div :class="[ 'button-round', { 'is-busy': isBusy } ]">
+        <a @click="onClick">
             <slot />
         </a>
     </div>
