@@ -28,19 +28,22 @@ export default {
     },
     methods: {
         onClick () {
-            this.isHint = false
+            this.stopHintAnimation()
             this.$copyText(this.password)
             this.$emit('copy')
+        },
+        stopHintAnimation () {
+            this.isHint = false
         }
     },
     mounted () {
-        setInterval(() => {
-            this.isBusy = true 
+        // setInterval(() => {
+        //     this.isBusy = true 
 
-            setTimeout(() => {
-                this.isBusy = false
-            }, 1000)
-        }, 2000)
+        //     setTimeout(() => {
+        //         this.isBusy = false
+        //     }, 1000)
+        // }, 2000)
     }
 }
 </script>
