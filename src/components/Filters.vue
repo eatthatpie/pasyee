@@ -10,33 +10,10 @@
         </div>
         <div class="filters-placeholder" v-click-outside="onClickOutsidePlaceholder">
             <div :class="[ 'filters-leaf', { 'is-open': isCharactersOpen } ]">
-                <div class="filters-list">
-                    <div class="filters-item is-active">
-                        letters <i class="icon-checkmark" />
-                    </div>
-                    <div class="filters-item is-active">
-                        numbers <i class="icon-checkmark" />
-                    </div>
-                    <div class="filters-item">
-                        light specials <i class="icon-checkmark" />
-                    </div>
-                    <div class="filters-item">
-                        heavy specials <i class="icon-checkmark" />
-                    </div>
-                </div>
+                <filters-list v-model="charactersFilters" />
             </div>
             <div class="filters-leaf" :class="{ 'is-open': isEasyToOpen }">
-                <div class="filters-list">
-                    <div class="filters-item is-active">
-                        write <i class="icon-checkmark" />
-                    </div>
-                    <div class="filters-item">
-                        read <i class="icon-checkmark" />
-                    </div>
-                    <div class="filters-item">
-                        remember <i class="icon-checkmark" />
-                    </div>
-                </div>
+                <filters-list v-model="easyToFilters" />
             </div>
         </div>
     </div>
@@ -44,15 +21,30 @@
 
 <script>
 import ClickOutside from 'vue-click-outside'
+import FiltersList from './filters/FiltersList'
 
 export default {
     directives: {
         ClickOutside
     },
+    components: {
+        FiltersList
+    },
     data () {
         return {
             isCharactersOpen: false,
-            isEasyToOpen: false
+            isEasyToOpen: false,
+            charactersFilters: [
+                { label: 'letters', isActive: false },
+                { label: 'numbers', isActive: false },
+                { label: 'light specials', isActive: false },
+                { label: 'heavy specials', isActive: false }
+            ],
+            easyToFilters: [
+                { label: 'write', isActive: false },
+                { label: 'read', isActive: false },
+                { label: 'remember', isActive: false }
+            ]
         }
     },
     computed: {
@@ -146,23 +138,39 @@ export default {
         }
     }
 
-    &-list {
-        @include position-center-vertically(-19px);
-        position: absolute;
-        left: 0;
-        right: 0;
-    }
-
     &-item {
         @include transition();
         color: $color-default;
         font-weight: $font-weight-bold;
         padding: 3px 0;
         opacity: 0;
+        backface-visibility: hidden;
+
+        span {
+            position: relative;
+            display: inline-block;
+            width: 25px;
+        }
 
         [class^="icon-"] {
-            margin-left: 5px;
+            @include transition();
+            position: absolute;
+            top: -19px;
+            left: 5px;
+
+            &:nth-child(2) {
+                @include transition-delay(.2s);
+                @include transform(scale(0));
+                opacity: 0;
+            }
         }
+    }
+
+    &-list {
+        @include position-center-vertically(-19px);
+        position: absolute;
+        left: 0;
+        right: 0;
     }
 
     &.is-open {
@@ -193,6 +201,18 @@ export default {
 
             &.is-active {
                 opacity: 1;
+
+                [class^="icon-"] {
+                    &:nth-child(1) {
+                        @include transform(scale(0));
+                        opacity: 0;
+                    }
+
+                    &:nth-child(2) {
+                        @include transform(scale(1));
+                        opacity: 1;
+                    }
+                }
             }
         }
     }
