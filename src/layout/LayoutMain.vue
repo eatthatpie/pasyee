@@ -12,7 +12,7 @@
                 </div>
             </contents>
 
-            <password @copy="onPasswordCopy" />
+            <password ref="password" @copy="onPasswordCopy" />
 
             <lengthbar :min="6" :max="32" @change="onLengthChange" />
 
@@ -53,6 +53,8 @@ export default {
             setTimeout(() => {
                 this.$refs.filters.close()
             }, 100)
+
+            this.$refs.password.generate()
         },
         onPasswordCopy () {
             this.$refs.alert.open('Password copied. Remember to remove it from the clipboard ASAP.')

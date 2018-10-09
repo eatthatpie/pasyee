@@ -14,6 +14,13 @@
 
 <script>
 import Loader from './Loader'
+import { PasswordGenerator } from './../plugins/generator/PasswordGenerator'
+import { 
+    LettersSeeder, 
+    NumbersSeeder, 
+    LightSpecialsSeeder, 
+    HeavySpecialsSeeder
+} from './../plugins/generator/Seeders'
 
 export default {
     components: {
@@ -21,6 +28,7 @@ export default {
     },
     data () {
         return {
+            generator: PasswordGenerator,
             password: '..poipoi6B^#',
             isBusy: false,
             isHint: true
@@ -34,16 +42,22 @@ export default {
         },
         stopHintAnimation () {
             this.isHint = false
+        },
+        generate () {
+            this.isBusy = true 
+
+            setTimeout(() => {
+                this.password = PasswordGenerator.generate()
+                this.isBusy = false
+            }, 610)
         }
     },
     mounted () {
-        // setInterval(() => {
-        //     this.isBusy = true 
-
-        //     setTimeout(() => {
-        //         this.isBusy = false
-        //     }, 1000)
-        // }, 2000)
+        PasswordGenerator.setSeeders({
+            LettersSeeder, NumbersSeeder
+        })
+        .setConstraints({})
+        .setLength(8)
     }
 }
 </script>
