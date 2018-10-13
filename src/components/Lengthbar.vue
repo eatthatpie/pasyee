@@ -32,7 +32,7 @@ export default {
             type: Number,
             default: 50
         },
-        default: {
+        value: {
             type: Number,
             default: 9,
             validate: v => v >= this.min && v <= this.max
@@ -40,7 +40,7 @@ export default {
     },
     data () {
         return {
-            length: this.default,
+            length: this.value,
             isDragging: false,
             position: 100
         }
@@ -63,6 +63,7 @@ export default {
             this.isDragging = false
 
             this.$emit('change', this.length)
+            this.$emit('input', this.length)
         },
         onMove: _.throttle(function (e) {
             if (this.isDragging) {
