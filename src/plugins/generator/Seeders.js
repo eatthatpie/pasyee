@@ -1,5 +1,9 @@
 export const LettersSeeder = {
-    characters: 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
+    characters: 'qwertyuiopasdfghjklzxcvbnm'
+}
+
+export const CapitalLettersSeeder = {
+    characters: 'QWERTYUIOPASDFGHJKLZXCVBNM'
 }
 
 export const NumbersSeeder = {

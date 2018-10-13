@@ -27,7 +27,7 @@ export const PasswordGenerator = {
     generate () {
         let out = ''
 
-        for (let i = 0; i <= this.data.length; i++) {
+        for (let i = 0; i < this.data.length; i++) {
             let index = Math.round(Math.random() * (this.data.characters.length - 1))
             out += this.data.characters[index]
         }
