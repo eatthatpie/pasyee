@@ -14,16 +14,37 @@
 
 <script>
 import Loader from './Loader'
+import { PasswordGenerator } from './../plugins/generator/PasswordGenerator'
+import { PasswordStrength } from './../plugins/password-strength/PasswordStrength'
+import { 
+    LettersSeeder, 
+    NumbersSeeder, 
+    LightSpecialsSeeder, 
+    HeavySpecialsSeeder
+} from './../plugins/generator/Seeders'
 
 export default {
     components: {
         Loader
     },
+    props: {
+        length: {
+            type: Number,
+            default: 12,
+            validator: v => v > 0
+        },
+        seeders: {
+            type: Array,
+            default: []
+        }
+    },
     data () {
         return {
+            generator: PasswordGenerator,
             password: '..poipoi6B^#',
+            strength: 0,
             isBusy: false,
-            isHint: true
+            isHint: false
         }
     },
     methods: {
@@ -31,19 +52,48 @@ export default {
             this.stopHintAnimation()
             this.$copyText(this.password)
             this.$emit('copy')
+            this.$store.dispatch('disableHintAnimation')
         },
         stopHintAnimation () {
             this.isHint = false
+        },
+        generate () {
+            this.isBusy = true 
+            this.isHint = false
+
+            setTimeout(() => {
+                this.isBusy = false
+                this.password = PasswordGenerator.generate()
+                this.strength = PasswordStrength.getStrength(this.password)
+
+                if (this.$store.getters['isHintAnimationEnabled']) {
+                    this.isHint = true
+                }
+
+                this.$emit('change', {
+                    strength: this.strength
+                })
+            }, 610)
+        }
+    },
+    watch: {
+        length: {
+            handler: value => {
+                PasswordGenerator.setLength(value)
+            },
+            immediate: true
+        },
+        seeders: {
+            handler: value => {
+                PasswordGenerator.setSeeders(value)
+            },
+            immediate: true
         }
     },
     mounted () {
-        // setInterval(() => {
-        //     this.isBusy = true 
-
-        //     setTimeout(() => {
-        //         this.isBusy = false
-        //     }, 1000)
-        // }, 2000)
+        PasswordGenerator.setSeeders({
+            LettersSeeder
+        })
     }
 }
 </script>
@@ -65,9 +115,12 @@ export default {
 
     &-letters {
         @include transition(.3s);
-        @include transform(scale(1));
         display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
         visibility: visible;
+        max-width: 100%;
         opacity: 1;
     }
 
@@ -90,7 +143,6 @@ export default {
 
     &.is-busy & {
         &-letters {
-            @include transform(scale(.8));
             visibility: hidden;
             opacity: 0;
         }

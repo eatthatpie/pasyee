@@ -22,6 +22,13 @@
 <script>
 import ClickOutside from 'vue-click-outside'
 import FiltersList from './filters/FiltersList'
+import { 
+    LettersSeeder, 
+    CapitalLettersSeeder,
+    NumbersSeeder, 
+    LightSpecialsSeeder, 
+    HeavySpecialsSeeder
+} from './../plugins/generator/Seeders'
 
 export default {
     directives: {
@@ -35,10 +42,10 @@ export default {
             isCharactersOpen: false,
             isEasyToOpen: false,
             charactersFilters: [
-                { label: 'letters', isActive: false },
-                { label: 'numbers', isActive: false },
-                { label: 'light specials', isActive: false },
-                { label: 'heavy specials', isActive: false }
+                { label: 'capital letters', isActive: false, seeder: CapitalLettersSeeder },
+                { label: 'numbers', isActive: false, seeder: NumbersSeeder },
+                { label: 'light specials', isActive: false, seeder: LightSpecialsSeeder },
+                { label: 'heavy specials', isActive: false, seeder: HeavySpecialsSeeder }
             ],
             easyToFilters: [
                 { label: 'write', isActive: false },
@@ -61,6 +68,11 @@ export default {
             if (e.target.className != 'filters-label' && e.target.parentNode.className != 'filters-label') {
                 this.close()
             }
+        },
+        getCharactersFilters () {
+            return [LettersSeeder].concat(this.charactersFilters.filter(v => v.isActive === true).map(v => {
+                return v.seeder
+            }))
         }
     },
     watch: {
@@ -149,7 +161,7 @@ export default {
         span {
             position: relative;
             display: inline-block;
-            width: 25px;
+            width: 30px;
         }
 
         [class^="icon-"] {

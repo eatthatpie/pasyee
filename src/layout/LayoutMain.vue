@@ -7,14 +7,14 @@
                     <h3>Why not just generate some?</h3> -->
                     <h2>Generate Password</h2>
 
-                    <dynamometer :power="dummyPower" />
+                    <dynamometer :power="strength" />
                     <p class="contents-small">Strength</p>
                 </div>
             </contents>
 
-            <password @copy="onPasswordCopy" />
+            <password ref="password" :length="password.length" :seeders="password.seeders" @copy="onPasswordCopy" @change="onPasswordChange" />
 
-            <lengthbar :min="6" :max="32" @change="onLengthChange" />
+            <lengthbar :min="6" :max="32" v-model="password.length" @change="onPasswordLengthChange" />
 
             <filters ref="filters" />
 
@@ -42,26 +42,32 @@ export default {
     },
     data () {
         return {
-            dummyPower: 71
+            strength: 0,
+            password: {
+                length: 9,
+                seeders: []
+            }
         }
     },
     methods: {
-        onLengthChange (length) {
-            console.log('Password\'s length changed to ' + length)
-        },
         onRefreshButtonClick () {
             setTimeout(() => {
                 this.$refs.filters.close()
             }, 100)
+
+            this.password.seeders = this.$refs.filters.getCharactersFilters()
+            this.$refs.password.generate()
+        },
+        onPasswordLengthChange () {
+            this.password.seeders = this.$refs.filters.getCharactersFilters()
+            this.$refs.password.generate()
         },
         onPasswordCopy () {
             this.$refs.alert.open('Password copied. Remember to remove it from the clipboard ASAP.')
+        },
+        onPasswordChange (data) {
+            this.strength = data.strength
         }
-    },
-    mounted () {
-        setInterval(() => {
-            this.dummyPower = Math.ceil(100 * Math.random())
-        }, 1000)
     }
 }
 </script>

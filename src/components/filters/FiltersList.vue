@@ -6,11 +6,11 @@
             :class="[ 'filters-item', { 'is-active': item.isActive } ]" 
             @click="item.isActive = !item.isActive"
         >
-            {{ item.label }}
             <span>
                 <i class="icon-checkmark" />
                 <i class="icon-checkmark" />
             </span>
+            {{ item.label }}
         </div>
     </div>
 </template>
