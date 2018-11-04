@@ -4,16 +4,16 @@
             <a class="filters-label" @click="isCharactersOpen = true">
                 <span>characters...</span>
             </a>
-            <a class="filters-label" @click="isEasyToOpen = true">
-                <span>easy to...</span>
+            <a class="filters-label" @click="isConstraintsOpen = true">
+                <span>constraints...</span>
             </a>
         </div>
         <div class="filters-placeholder" v-click-outside="onClickOutsidePlaceholder">
             <div :class="[ 'filters-leaf', { 'is-open': isCharactersOpen } ]">
                 <filters-list v-model="charactersFilters" />
             </div>
-            <div class="filters-leaf" :class="{ 'is-open': isEasyToOpen }">
-                <filters-list v-model="easyToFilters" />
+            <div class="filters-leaf" :class="{ 'is-open': isConstraintsOpen }">
+                <filters-list v-model="constraintsFilters" />
             </div>
         </div>
     </div>
@@ -40,29 +40,29 @@ export default {
     data () {
         return {
             isCharactersOpen: false,
-            isEasyToOpen: false,
+            isConstraintsOpen: false,
             charactersFilters: [
                 { label: 'capital letters', isActive: false, seeder: CapitalLettersSeeder },
                 { label: 'numbers', isActive: false, seeder: NumbersSeeder },
                 { label: 'light specials', isActive: false, seeder: LightSpecialsSeeder },
                 { label: 'heavy specials', isActive: false, seeder: HeavySpecialsSeeder }
             ],
-            easyToFilters: [
-                { label: 'write', isActive: false },
-                { label: 'read', isActive: false },
-                { label: 'remember', isActive: false }
+            constraintsFilters: [
+                { label: 'writable', isActive: false },
+                { label: 'readable', isActive: false },
+                { label: 'easy to remember', isActive: false }
             ]
         }
     },
     computed: {
         isOpen () {
-            return this.isCharactersOpen || this.isEasyToOpen
+            return this.isCharactersOpen || this.isConstraintsOpen
         }
     },
     methods: {
         close () {
             this.isCharactersOpen = false
-            this.isEasyToOpen = false
+            this.isConstraintsOpen = false
         },
         onClickOutsidePlaceholder (e) {
             if (e.target.className != 'filters-label' && e.target.parentNode.className != 'filters-label') {
@@ -78,11 +78,11 @@ export default {
     watch: {
         isCharactersOpen () {
             if (this.isCharactersOpen) {
-                this.isEasyToOpen = false
+                this.isConstraintsOpen = false
             }
         }, 
-        isEasyToOpen () {
-            if (this.isEasyToOpen) {
+        isConstraintsOpen () {
+            if (this.isConstraintsOpen) {
                 this.isCharactersOpen = false
             }
         }
