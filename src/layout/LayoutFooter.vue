@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-footer">
+    <footer class="layout-footer">
         <div class="container">
             <div class="layout-footer-text">
                 &copy; eatthatpie (Tomasz Jamróg) 2018.
@@ -17,7 +17,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </footer>
 </template>
 
 <script>
