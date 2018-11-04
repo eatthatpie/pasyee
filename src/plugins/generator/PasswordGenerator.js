@@ -1,20 +1,29 @@
+import { CharacterRandomizer } from './CharacterRandomizer'
+import { Seeder } from './seeders/Seeder'
+
 export const PasswordGenerator = {
     data: {
         constraints: null,
-        characters: '',
+        seeders: null,
         length: 0
     },
-    setSeeders (seeds) {
-        this.clearSeeders()
-        
-        for (let i in seeds) {
-            this.data.characters += seeds[i].characters
+    setSeeders (seeders) {
+        for (let i in seeders) {
+            // @TODO
+            // Change this to sth better, consider prototype chain, etc
+            if (seeders[i].__proto__ !== Seeder) {
+                console.error('Given seeder is not an instance of Seeder object.')
+            }
         }
+
+        this.clearSeeders()
+
+        this.data.seeders = seeders
 
         return this
     },
     clearSeeders () {
-        this.data.characters = ''
+        this.data.seeders = null
     },
     setConstraints (constraints) {
         return this
@@ -25,13 +34,21 @@ export const PasswordGenerator = {
         return this
     },
     generate () {
-        let out = ''
+        let out = '',
+            allCharacters = ''
 
-        for (let i = 0; i < this.data.length; i++) {
-            let index = Math.round(Math.random() * (this.data.characters.length - 1))
-            out += this.data.characters[index]
+        // @TODO
+        // Allow more than at least one occurency of seeder's characters
+        for (let i in this.data.seeders) {
+            let seederCharacters = this.data.seeders[i].getCharacters()
+
+            out += CharacterRandomizer.getRandomCharacters(seederCharacters, 1)
+
+            allCharacters += seederCharacters
         }
 
-        return out
+        out += CharacterRandomizer.getRandomCharacters(allCharacters, this.data.length - out.length)
+
+        return CharacterRandomizer.shuffle(out)
     }
 }
