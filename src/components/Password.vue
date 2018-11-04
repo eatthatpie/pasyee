@@ -150,18 +150,12 @@ export default {
 
     &.is-hint & {
         &-letters {
-            animation-name: hintLetters;
-            animation-duration: 2.5s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
+            animation: hintLetters 2.5s ease-in-out 0s infinite
         }
 
         &-pointer {
             display: block;
-            animation-name: hintCursor;
-            animation-duration: 2.5s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
+            animation: hintCursor 2.5s ease-in-out 0s infinite;
         }
     }
 }
