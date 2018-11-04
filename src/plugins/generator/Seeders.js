@@ -1,19 +1,13 @@
-export const LettersSeeder = {
-    characters: 'qwertyuiopasdfghjklzxcvbnm'
-}
+import { LettersSeeder } from './seeders/LettersSeeder'
+import { CapitalLettersSeeder } from './seeders/CapitalLettersSeeder'
+import { NumbersSeeder } from './seeders/NumbersSeeder'
+import { LightSpecialsSeeder } from './seeders/LightSpecialsSeeder'
+import { HeavySpecialsSeeder } from './seeders/HeavySpecialsSeeder'
 
-export const CapitalLettersSeeder = {
-    characters: 'QWERTYUIOPASDFGHJKLZXCVBNM'
-}
-
-export const NumbersSeeder = {
-    characters: '0123456789'
-}
-
-export const LightSpecialsSeeder = {
-    characters: '!#$^-_'
-}
-
-export const HeavySpecialsSeeder = {
-    characters: '@%&*()+=|,.<>/?;:{}[]'
+export {
+    LettersSeeder,
+    CapitalLettersSeeder,
+    NumbersSeeder,
+    LightSpecialsSeeder,
+    HeavySpecialsSeeder
 }
