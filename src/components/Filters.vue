@@ -42,15 +42,15 @@ export default {
             isCharactersOpen: false,
             isConstraintsOpen: false,
             charactersFilters: [
-                { label: 'capital letters', isActive: false, seeder: CapitalLettersSeeder },
-                { label: 'numbers', isActive: false, seeder: NumbersSeeder },
-                { label: 'light specials', isActive: false, seeder: LightSpecialsSeeder },
+                { label: 'capital letters', isActive: true, seeder: CapitalLettersSeeder },
+                { label: 'numbers', isActive: true, seeder: NumbersSeeder },
+                { label: 'light specials', isActive: true, seeder: LightSpecialsSeeder },
                 { label: 'heavy specials', isActive: false, seeder: HeavySpecialsSeeder }
             ],
             constraintsFilters: [
-                { label: 'writable', isActive: false },
-                { label: 'readable', isActive: false },
-                { label: 'easy to remember', isActive: false }
+                { label: 'easy to say', isActive: false },
+                { label: 'easy to read', isActive: false },
+                { label: 'easy to remember', isActive: true }
             ]
         }
     },
