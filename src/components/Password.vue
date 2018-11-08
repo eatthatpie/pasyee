@@ -30,7 +30,7 @@ export default {
     props: {
         length: {
             type: Number,
-            default: 12,
+            default: 9,
             validator: v => v > 0
         },
         seeders: {
@@ -41,10 +41,24 @@ export default {
     data () {
         return {
             generator: PasswordGenerator,
-            password: '..poipoi6B^#',
+            password: '',
             strength: 0,
             isBusy: false,
             isHint: false
+        }
+    },
+    watch: {
+        length: {
+            handler: value => {
+                PasswordGenerator.setLength(value)
+            },
+            immediate: true
+        },
+        seeders: {
+            handler: value => {
+                PasswordGenerator.setSeeders(value)
+            },
+            immediate: true
         }
     },
     methods: {
@@ -75,25 +89,6 @@ export default {
                 })
             }, 610)
         }
-    },
-    watch: {
-        length: {
-            handler: value => {
-                PasswordGenerator.setLength(value)
-            },
-            immediate: true
-        },
-        seeders: {
-            handler: value => {
-                PasswordGenerator.setSeeders(value)
-            },
-            immediate: true
-        }
-    },
-    mounted () {
-        PasswordGenerator.setSeeders({
-            LettersSeeder
-        })
     }
 }
 </script>
@@ -111,6 +106,7 @@ export default {
 
     &-container {
         position: relative;
+        min-height: 54px;
     }
 
     &-letters {

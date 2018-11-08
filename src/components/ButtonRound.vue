@@ -47,6 +47,7 @@ export default {
         @include transition();
         @include dimensions(64px, 64px);
         @include border-radius(50%);
+        @include box-shadow(0px 0px 16px rgba(0, 0, 0, 0.2));
         background-color: $color-default;
         color: $color-primary;
         font-family: $font-family-default;
@@ -78,21 +79,21 @@ export default {
     &.is-busy {
         a {
             [class^="icon-"] {
-                &:before {
+                //&:before {
                     animation-name: fullRotation;
                     animation-duration: .6s;
                     animation-timing-function: ease-in-out;
-                }
+                //}
             }
         }
     }
 }
 @keyframes fullRotation {
     0% {
-        @include transform(rotate(0deg));
+        @include transform(translate(-50%, -50%) rotate(0deg));
     }
     100% {
-        @include transform(rotate(360deg));
+        @include transform(translate(-50%, -50%) rotate(360deg));
     }
 }
 </style>

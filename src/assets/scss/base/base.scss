@@ -16,6 +16,10 @@ body {
     font-size: $font-size-default;
     font-weight: $font-weight-light;
     height: auto;
+
+    &.is-scroll-disabled {
+        overflow: hidden;
+    }
 }
 
 .container {

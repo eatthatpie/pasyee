@@ -12,9 +12,19 @@
                 </div>
             </contents>
 
-            <password ref="password" :length="password.length" :seeders="password.seeders" @copy="onPasswordCopy" @change="onPasswordChange" />
+            <password 
+                ref="password" 
+                :length="password.length" 
+                :seeders="password.seeders" 
+                @copy="onPasswordCopy" 
+                @change="onPasswordChange" 
+            />
 
-            <lengthbar :min="6" :max="32" v-model="password.length" @change="onPasswordLengthChange" />
+            <lengthbar 
+                :func="x => 26 * x * x + 6"
+                v-model="password.length" 
+                @change="onPasswordLengthChange" 
+            />
 
             <filters ref="filters" />
 
@@ -49,18 +59,23 @@ export default {
             }
         }
     },
+    mounted () {
+        this.generatePassword()
+    },
     methods: {
+        generatePassword () {
+            this.password.seeders = this.$refs.filters.getCharactersFilters()
+            this.$refs.password.generate()
+        },
         onRefreshButtonClick () {
             setTimeout(() => {
                 this.$refs.filters.close()
             }, 100)
 
-            this.password.seeders = this.$refs.filters.getCharactersFilters()
-            this.$refs.password.generate()
+            this.generatePassword()
         },
         onPasswordLengthChange () {
-            this.password.seeders = this.$refs.filters.getCharactersFilters()
-            this.$refs.password.generate()
+            this.generatePassword()
         },
         onPasswordCopy () {
             this.$refs.alert.open('Password copied. Remember to remove it from the clipboard ASAP.')

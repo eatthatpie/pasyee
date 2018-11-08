@@ -29,6 +29,16 @@ export default {
         toggleNav: _.throttle(function() {
             this.isNavOpen = !this.isNavOpen
         }, 500)
+    },
+    watch: {
+        isNavOpen: value => {
+            if (value) {
+                document.body.classList.add('is-scroll-disabled')
+            }
+            else {
+                document.body.classList.remove('is-scroll-disabled')
+            }
+        }
     }
 }
 </script>
