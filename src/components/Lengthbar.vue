@@ -6,10 +6,10 @@
         @touchmove="onMove"
     >
         <div class="lengthbar-trace"></div>
-        <div class="lengthbar-pointer" ref="pointer" :style="{ 'left': position + 'px' }">
+        <div class="lengthbar-pointer" ref="pointer" :style="{ 'left': pointerPositionX + 'px' }">
             <div class="lengthbar-label">
                 <div class="lengthbar-label-frame">
-                    <div class="lengthbar-label-list" :style="{ transform: 'translateY(-' + lengthListPosition + 'px)' }">
+                    <div class="lengthbar-label-list" :style="{ transform: 'translateY(-' + labelPositionY + 'px)' }">
                         <span v-for="i in max" :key="i" v-text="i" />
                     </div>
                 </div>
@@ -32,6 +32,17 @@ export default {
             type: Number,
             default: 50
         },
+        /**
+         * Counting range <0; 1>
+         * The function has to have only positive values in range <0; 1>
+         * The function has to be growing
+         */
+        func: {
+            type: Function,
+            required: false,
+            default: null,
+            validate: v => true // @TODO
+        },
         value: {
             type: Number,
             default: 9,
@@ -42,14 +53,14 @@ export default {
         return {
             length: this.value,
             isDragging: false,
-            position: 100
+            pointerPositionX: 100
         }
     },
     computed: {
-        lengthListPosition () {
+        labelPositionY () {
             return (this.length - 1) * 17
         },
-        minMaxFactor () {
+        minMaxRatioFactor () {
             let ratio = this.max / this.min
 
             return (ratio - 1) / ratio
@@ -66,18 +77,27 @@ export default {
             this.$emit('input', this.length)
         },
         onMove: _.throttle(function (e) {
-            if (this.isDragging) {
-                let offsetLeft = e.srcElement.offsetLeft,
-                    relativeX = e.changedTouches[0].pageX - offsetLeft
-
-                relativeX = relativeX > 320 ? 320 : relativeX
-                relativeX  = relativeX < 0 ? 0 : relativeX
-
-                this.position = (relativeX * 302) / 320
-
-                this.length = Math.ceil(this.max * relativeX * this.minMaxFactor / 320) + this.min
+            if (!this.isDragging) {
+                return
             }
-        }, 10)
+
+            let offsetLeft = this.$el.offsetLeft,
+                offsetWidth = this.$el.offsetWidth,
+                relativeX = e.changedTouches[0].pageX - offsetLeft
+
+            relativeX = relativeX > offsetWidth ? offsetWidth : relativeX
+            relativeX  = relativeX < 0 ? 0 : relativeX
+
+            this.pointerPositionX = (relativeX * (offsetWidth - this.$refs.pointer.offsetWidth)) / offsetWidth
+
+            if (this.func === null) {
+                this.length = Math.ceil(this.max * relativeX * this.minMaxRatioFactor / offsetWidth) + this.min
+
+                return
+            }
+
+            this.length = Math.ceil(this.func.call(this.func, relativeX / offsetWidth))
+        }, 15)
     }
 }
 </script>
