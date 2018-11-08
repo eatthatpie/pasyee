@@ -1,3 +1,9 @@
+@mixin box-shadow($expr) {
+    -webkit-box-shadow: $expr;
+    -moz-box-shadow: $expr;
+    box-shadow: $expr;
+}
+
 @mixin user-select($expr: none) {
     -webkit-touch-callout: $expr;
     -webkit-user-select: $expr;
