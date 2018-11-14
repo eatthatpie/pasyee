@@ -5,13 +5,13 @@
                 <a href="/">Generate Password</a>
             </li>
             <li>
-                <a class="is-inactive" href="/htpasswd">Generate Password For .htpasswd</a>
+                <a class="is-inactive" href="/whats-new">What's new</a>
             </li>
             <li>
-                <a class="is-inactive" href="/how-to-memorize-your-password">How To Memorize Your Passwords</a>
+                <a class="is-inactive" href="/adding-pasyee-to-your-home-screen">Adding Pasyee To Your Home Screen</a>
             </li>
             <li>
-                <a href="https://github.com/eatthatpie/pasyee" target="_blank">Source on GitHub</a>
+                <a href="https://github.com/eatthatpie/pasyee" target="_blank" ref="noopener">Source on GitHub</a>
             </li>
             <li>
                 <a class="is-inactive" href="/send-feedback">Send Feedback</a>
