@@ -1,89 +1,14 @@
 <template>
     <main class="layout-main">
-        <div class="container">
-            <contents>
-                <div class="contents-center">
-                    <!-- <h3>Need password ideas?</h3>
-                    <h3>Why not just generate some?</h3> -->
-                    <h2>Generate Password</h2>
-
-                    <dynamometer :power="strength" />
-                    <p class="contents-small">Strength</p>
-                </div>
-            </contents>
-
-            <password 
-                ref="password" 
-                :length="password.length" 
-                :seeders="password.seeders" 
-                @copy="onPasswordCopy" 
-                @change="onPasswordChange" 
-            />
-
-            <lengthbar 
-                :func="x => 26 * x * x + 6"
-                v-model="password.length" 
-                @change="onPasswordLengthChange" 
-            />
-
-            <filters ref="filters" />
-
-            <button-round @click="onRefreshButtonClick">
-                <i class="icon-loop2"/>
-            </button-round>
-        </div>
-
-        <alert ref="alert" />
+        <transition name="zoom" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </main>
 </template>
 
 <script>
-import Alert from './../components/Alert'
-import ButtonRound from './../components/ButtonRound'
-import Contents from './../components/Contents'
-import Dynamometer from './../components/Dynamometer'
-import Filters from './../components/Filters'
-import Lengthbar from './../components/Lengthbar'
-import Password from './../components/Password'
-
 export default {
-    components: {
-        Alert, ButtonRound, Contents, Dynamometer, Filters, Lengthbar, Password
-    },
-    data () {
-        return {
-            strength: 0,
-            password: {
-                length: 9,
-                seeders: []
-            }
-        }
-    },
-    mounted () {
-        this.generatePassword()
-    },
-    methods: {
-        generatePassword () {
-            this.password.seeders = this.$refs.filters.getCharactersFilters()
-            this.$refs.password.generate()
-        },
-        onRefreshButtonClick () {
-            setTimeout(() => {
-                this.$refs.filters.close()
-            }, 100)
 
-            this.generatePassword()
-        },
-        onPasswordLengthChange () {
-            this.generatePassword()
-        },
-        onPasswordCopy () {
-            this.$refs.alert.open('Password copied. Remember to remove it from the clipboard ASAP.')
-        },
-        onPasswordChange (data) {
-            this.strength = data.strength
-        }
-    }
 }
 </script>
 
@@ -93,7 +18,28 @@ export default {
 
 .layout-main {
     position: relative;
-    padding: 20px 0 0;
+    padding: ($value-header-height + $value-container-padding) 0 0;
     z-index: 2;
+
+    @media (min-width: $screen-tablet) {
+        padding: ($value-header-height-desktop + $value-container-padding) 0 0;
+    }
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+    @include transition(.4s);
+    @include transform-none();
+    opacity: 1;
+}
+
+.zoom-enter {
+    @include transform(translateY(-10px));
+    opacity: 0;
+}
+
+.zoom-leave-to {
+    @include transform(translateY(10px));
+    opacity: 0;
 }
 </style>

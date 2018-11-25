@@ -2,19 +2,26 @@
     <div class="nav">
         <ul>
             <li>
-                <a href="/">Generate Password</a>
+                <router-link to="/">Generate Password</router-link>
+            </li>
+            <li>
+                <a class="is-inactive" href="/pasyee-at-the-home-screen">Pasyee At The Home Screen</a>
             </li>
             <li>
                 <a class="is-inactive" href="/whats-new">What's new</a>
             </li>
             <li>
-                <a class="is-inactive" href="/adding-pasyee-to-your-home-screen">Adding Pasyee To Your Home Screen</a>
+                <router-link to="/cookie-policy">Cookie Policy</router-link>
+            </li>
+            <li class="separator" />
+            <li>
+                <router-link to="/send-feedback">Send Feedback</router-link>
             </li>
             <li>
                 <a href="https://github.com/eatthatpie/pasyee" target="_blank" ref="noopener">Source on GitHub</a>
             </li>
             <li>
-                <a class="is-inactive" href="/send-feedback">Send Feedback</a>
+                <a class="is-inactive" href="/roadmap">Roadmap</a>
             </li>
         </ul>
     </div>
@@ -32,9 +39,9 @@ export default {
 
 .nav {
     @include position-fixed-cover();
+    top: $value-header-height;
     visibility: hidden;
     opacity: 0;
-    top: $value-header-height;
 
     a {
         color: $color-primary;
@@ -43,11 +50,12 @@ export default {
     }
 
     li {
-        @include transition(.6s);
+        @include transition(.35s);
         @include transition-delay(0s);
-        @include transform(translateY(10px));
+        @include transform(translateY(20px));
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        text-align: center;
         padding: 0 $value-container-padding;
         opacity: 0;
 
@@ -55,9 +63,12 @@ export default {
             margin-top: 15px;
         }
 
+        &.separator {
+            height: 20px;
+        }
+
         > a {
-            display: block;
-            text-align: center;
+            display: inline-block;
 
             &.is-inactive {
                 color: $color-secondary-muted;
@@ -67,6 +78,7 @@ export default {
 
     ul {
         @include position-center-vertically(-62px);
+        list-style-type: none;
         width: 100%;
     }
 
@@ -80,9 +92,22 @@ export default {
 
             @for $i from 1 through 10 {
                 &:nth-child(#{$i}) {
-                    $d: ($i / 8);
+                    $d: ($i / 20);
                     @include transition-delay(#{$d}s);
                 }
+            }
+        }
+    }
+
+    @media (min-width: $screen-laptop) {
+        left: calc(100% - 330px);
+
+        li {
+            padding: 0 $value-container-padding-desktop 0 $value-container-padding;
+            text-align: right;
+
+            > a {
+                @include hover-out();
             }
         }
     }

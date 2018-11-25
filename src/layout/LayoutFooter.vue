@@ -7,7 +7,7 @@
             <div class="layout-footer-links">
                 <ul>
                     <li>
-                        <a href="/privacy">Privacy</a>
+                        <router-link to="/cookie-policy">Cookie Policy</router-link>
                     </li>
                     <li>
                         <a href="https://github.com/eatthatpie/pasyee" target="_blank">
@@ -31,15 +31,16 @@ export default {
 @import './../assets/scss/variables/_variables.scss';
 
 .layout-footer {
+    position: relative;
     text-align: center;
-    padding: 28px 0 20px;
+    padding: 28px 0 $value-container-padding;
 
     &-text {
-        font-size: .75em;
+        font-size: .88em;
     }
 
     &-links {
-        padding: 8px 0 0;
+        padding: 8px 0 8px;
         
         ul {
             list-style-type: none;
@@ -73,6 +74,20 @@ export default {
     &-text + &-links,
     &-links + &-text {
         padding-top: 10px;
+    }
+
+    @media (min-width: $screen-laptop) {
+        padding: 28px 0 $value-container-padding-desktop;
+
+        &-links {
+            ul {
+                > li {
+                    > a {
+                        @include hover-out($color-default);
+                    }
+                }
+            }
+        }
     }
 }
 </style>

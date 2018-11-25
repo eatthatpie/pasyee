@@ -1,9 +1,12 @@
-@mixin transition($t: .2s) {
-    -webkit-transition: $t;
-    -moz-transition: $t;
-    -ms-transition: $t;
-    -o-transition: $t;
-    transition: $t;
+@mixin transition($expr...) {
+    @if (length($expr) < 1) {
+        $expr: .2s;
+    }
+    -webkit-transition: $expr;
+    -moz-transition: $expr;
+    -ms-transition: $expr;
+    -o-transition: $expr;
+    transition: $expr;
 }
 
 @mixin transition-delay($d: 0s) {

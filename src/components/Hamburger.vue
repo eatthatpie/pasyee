@@ -1,6 +1,9 @@
 <template>
     <button class="hamburger" :class="{ 'is-active': isActive }">
-        <span v-for="(n, i) in 3" :key="i" />
+        <div class="hamburger-overlay" />
+        <div>
+            <span v-for="(n, i) in 3" :key="i" />
+        </div>
     </button>
 </template>
 
@@ -23,10 +26,24 @@ export default {
     @include dimensions(40px, 32px);
     position: absolute;
     background-color: transparent;
+    cursor: pointer;
     outline: 0;
     border: 0;
     right: $value-container-padding - 5px;
     top: 15px;
+
+    &-overlay {
+        @include transition(.1s);
+        @include transform(scale(.61));
+        @include border-radius(50%);
+        @include dimensions(54px);
+        background-color: $color-secondary;
+        position: absolute;
+        display: none;
+        top: -11px;
+        left: -7px;
+        opacity: 0;
+    }
 
     span {
         @include transition();
@@ -45,6 +62,19 @@ export default {
 
         &:nth-child(3) {
             top: 25px;
+        }
+    }
+
+    &:hover & {
+        &-overlay {
+            @include transform(none);
+            opacity: .39;
+        }
+
+        .is-nav-open & {
+            &-overlay {
+                opacity: .1;
+            }
         }
     }
 
@@ -67,6 +97,15 @@ export default {
     .is-nav-open & {
         span {
             background-color: $color-primary;
+        }
+    }
+
+    @media (min-width: $screen-laptop) {
+        right: $value-container-padding-desktop - 5px;
+        top: 30px;
+
+        &-overlay {
+            display: block;
         }
     }
 }

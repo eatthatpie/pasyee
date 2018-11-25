@@ -6,8 +6,12 @@
     transform: $expr;
 }
 
-@mixin transform-reset() {
+@mixin transform-none() {
     @include transform(none);
+} 
+
+@mixin transform-reset() {
+    @include transform-none();
 }
 
 @mixin transform-origin($x: 50%, $y: 50%) {

@@ -1,6 +1,9 @@
 <template>
     <div 
         :class="[ 'lengthbar', { 'is-dragging': isDragging } ]"
+        @mousedown="onStart"
+        @mouseup="onEnd"
+        @mousemove="onMove"
         @touchstart="onStart"
         @touchend="onEnd"
         @touchmove="onMove"
@@ -43,6 +46,12 @@ export default {
             default: null,
             validate: v => true // @TODO
         },
+        pointerPositionStartX: {
+            type: Number,
+            required: false,
+            default: 100,
+            validate: v => v >= 0 && v <= 1
+        },
         value: {
             type: Number,
             default: 9,
@@ -53,7 +62,7 @@ export default {
         return {
             length: this.value,
             isDragging: false,
-            pointerPositionX: 100
+            pointerPositionX: 0
         }
     },
     computed: {
@@ -64,7 +73,17 @@ export default {
             let ratio = this.max / this.min
 
             return (ratio - 1) / ratio
+        },
+        width () {
+            return this.$el.offsetWidth
+        },
+        offsetLeft () {
+            return this.$el.offsetLeft
         }
+    },
+    mounted () {
+        // TODO: calculate this with reverse function
+        this.pointerPositionX = this.pointerPositionStartX * this.width
     },
     methods: {
         onStart () {
@@ -81,9 +100,10 @@ export default {
                 return
             }
 
-            let offsetLeft = this.$el.offsetLeft,
-                offsetWidth = this.$el.offsetWidth,
-                relativeX = e.changedTouches[0].pageX - offsetLeft
+            let offsetLeft = this.offsetLeft,
+                offsetWidth = this.width,
+                absoluteX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX,
+                relativeX = absoluteX - offsetLeft
 
             relativeX = relativeX > offsetWidth ? offsetWidth : relativeX
             relativeX  = relativeX < 0 ? 0 : relativeX
@@ -107,7 +127,9 @@ export default {
 @import './../assets/scss/variables/_variables.scss';
 
 .lengthbar {
+    @include no-highlight();
     padding: 44px 0 15px;
+    cursor: pointer;
 
     &:before {
         @include transition();
@@ -197,6 +219,14 @@ export default {
 
         &-label {
             @include transform(scale(3));
+        }
+    }
+
+    @media (min-width: $screen-laptop) {
+        &:hover:not(.is-dragging) & {
+            &-trace {
+                background-color: $color-primary-hover;
+            }
         }
     }
 }

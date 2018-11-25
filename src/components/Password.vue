@@ -102,6 +102,7 @@ export default {
     font-size: $font-size-password;
     text-align: center;
     position: relative;
+    cursor: pointer;
     padding: 25px 0 40px;
 
     &-container {
