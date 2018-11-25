@@ -21,3 +21,7 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+@mixin tap-color($color) {
+    -webkit-tap-highlight-color: $color;
+}
