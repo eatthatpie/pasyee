@@ -1,10 +1,10 @@
 <template>
-    <div class="filters-list">
+    <div :class="[ 'filters-list', { 'is-inactive': !isActive } ]">
         <div 
             v-for="item in value" 
             :key="item.label" 
             :class="[ 'filters-item', { 'is-active': item.isActive } ]" 
-            @click="item.isActive = !item.isActive"
+            @click="isActive ? item.isActive = !item.isActive : null"
         >
             <span>
                 <i class="icon-checkmark" />
@@ -21,6 +21,11 @@ export default {
         value: {
             type: Array,
             required: true
+        },
+        isActive: {
+            type: Boolean,
+            required: false,
+            default: true
         }
     }
 }

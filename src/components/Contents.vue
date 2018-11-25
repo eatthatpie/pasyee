@@ -31,12 +31,56 @@ export default {
         margin-top: -.5em;
     }
 
-    &-center {
-        text-align: center;
+    p {
+        font-size: $font-size-default;
+        line-height: 1.5rem;
+        margin: 0;
+
+        &:nth-of-type(n + 2) {
+            margin-top: 1.5em;
+        }
+
+        &.contents {
+            &-big {
+                font-size: 1.25rem;
+            }
+
+            &-extrabig {
+                font-size: 2.5rem;
+            }
+
+            &-small {
+                font-size: .88em;
+            }
+        }
     }
 
-    &-small {
-        font-size: .75em;
+    ul {
+        list-style-type: none;
+
+        li {
+            position: relative;
+            line-height: 24px;
+            margin-top: .5em;
+            padding-left: 20px;
+
+            &:before {
+                content: '';
+                @include dimensions(6px);
+                background-color: $color-default;
+                position: absolute;
+                left: 0;
+                top: 8px;
+            }
+        }
+    }
+
+    strong {
+        font-weight: $font-weight-bold;
+    }
+
+    &-center {
+        text-align: center;
     }
 }
 </style>

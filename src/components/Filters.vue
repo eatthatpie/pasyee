@@ -4,7 +4,7 @@
             <a class="filters-label" @click="isCharactersOpen = true">
                 <span>characters...</span>
             </a>
-            <a class="filters-label" @click="isConstraintsOpen = true">
+            <a class="filters-label is-inactive" @click="isConstraintsOpen = true">
                 <span>constraints...</span>
             </a>
         </div>
@@ -13,7 +13,7 @@
                 <filters-list v-model="charactersFilters" />
             </div>
             <div class="filters-leaf" :class="{ 'is-open': isConstraintsOpen }">
-                <filters-list v-model="constraintsFilters" />
+                <filters-list :is-active="false" v-model="constraintsFilters" />
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@ export default {
             this.isConstraintsOpen = false
         },
         onClickOutsidePlaceholder (e) {
-            if (e.target.className != 'filters-label' && e.target.parentNode.className != 'filters-label') {
+            if (!e.target.classList.contains('filters-label') && !e.target.parentNode.classList.contains('filters-label')) {
                 this.close()
             }
         },
@@ -139,9 +139,14 @@ export default {
         background-color: $color-primary-light;
         text-align: center;
         display: block;
+        cursor: pointer;
         width: calc(50% - 5px);
         padding: 5px 0 0;
         height: 33px;
+
+        &.is-inactive {
+            opacity: .5;
+        }
 
         span {
             @include transition();
@@ -156,6 +161,7 @@ export default {
         font-weight: $font-weight-bold;
         padding: 3px 0;
         opacity: 0;
+        cursor: pointer;
         backface-visibility: hidden;
 
         span {
@@ -183,6 +189,12 @@ export default {
         position: absolute;
         left: 0;
         right: 0;
+
+        &.is-inactive {
+            .filters-item {
+                text-decoration: line-through;
+            }
+        }
     }
 
     &.is-open {
@@ -224,6 +236,24 @@ export default {
                         @include transform(scale(1));
                         opacity: 1;
                     }
+                }
+            }
+        }
+    }
+
+    @media (min-width: $screen-laptop) {
+        &-label {
+            @include transition(.1s);
+
+            &:hover {
+                background-color: $color-primary-hover;
+            }
+        }
+
+        &.is-open & {
+            &-item {
+                &:hover:not(.is-active) {
+                    opacity: .6;
                 }
             }
         }

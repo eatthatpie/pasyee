@@ -74,5 +74,17 @@ export default {
             }
         }
     }
+
+    @media (min-width: $screen-laptop) {
+        .is-nav-open & {
+            svg {
+                g {
+                    g {
+                        fill: $color-default;
+                    }
+                }
+            }
+        }
+    }
 }
 </style>

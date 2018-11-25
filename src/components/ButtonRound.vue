@@ -52,11 +52,12 @@ export default {
         color: $color-primary;
         font-family: $font-family-default;
         font-weight: $font-weight-bold;
+        cursor: pointer;
         box-sizing: border-box;
         display: inline-block;
         position: relative;
-        line-height: 39px;
-        font-size: 39px;
+        line-height: 38px;
+        font-size: 38px;
         top: -17px;
 
         &:active {
@@ -69,6 +70,8 @@ export default {
             color: $color-primary-darker;
             line-height: 38px;
             font-size: 38px;
+            left: 50%;
+            top: 50%;
 
             &:before {
                 display: inline-block;
