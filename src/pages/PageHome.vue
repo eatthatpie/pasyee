@@ -60,8 +60,6 @@ export default {
     },
     mounted () {
         this.generatePassword()
-
-        this.$refs.alert.open('You can add Pasyee to your Home Screen now.')
     },
     methods: {
         generatePassword () {
