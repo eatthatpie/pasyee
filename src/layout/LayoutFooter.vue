@@ -2,7 +2,7 @@
     <footer class="layout-footer">
         <div class="container">
             <div class="layout-footer-text">
-                &copy; eatthatpie (Tomasz Jamróg) 2018.
+                &copy; eatthatpie 2018.
             </div> 
             <div class="layout-footer-links">
                 <ul>
@@ -11,7 +11,7 @@
                     </li>
                     <li>
                         <a href="https://github.com/eatthatpie/pasyee" target="_blank">
-                            GitHub
+                            Source on GitHub
                         </a>
                     </li> 
                 </ul>
