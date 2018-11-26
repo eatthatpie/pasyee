@@ -1,3 +1,6 @@
+<!--
+currently not in use
+-->
 <template>
     <div :class="[ 'button-round', { 'is-busy': isBusy } ]">
         <a @click="onClick">

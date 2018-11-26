@@ -27,9 +27,7 @@
 
             <filters ref="filters" />
 
-            <button-round @click="onRefreshButtonClick">
-                <i class="icon-loop2"/>
-            </button-round>
+            <button-generate label="generate" @click="onRefreshButtonClick" />
         </div>
 
         <alert ref="alert" />
@@ -38,7 +36,7 @@
 
 <script>
 import Alert from './../components/Alert'
-import ButtonRound from './../components/ButtonRound'
+import ButtonGenerate from './../components/ButtonGenerate'
 import Contents from './../components/Contents'
 import Dynamometer from './../components/Dynamometer'
 import Filters from './../components/Filters'
@@ -47,7 +45,7 @@ import Password from './../components/Password'
 
 export default {
     components: {
-        Alert, ButtonRound, Contents, Dynamometer, Filters, Lengthbar, Password
+        Alert, ButtonGenerate, Contents, Dynamometer, Filters, Lengthbar, Password
     },
     data () {
         return {
