@@ -1,0 +1,12 @@
+.container {
+    overflow: hidden;
+    padding: 0 $value-container-padding;
+
+    &-space {
+        padding-bottom: 2em;
+    }
+
+    @media (min-width: $screen-laptop) {
+        padding: 0 $value-container-padding-desktop;
+    }
+}
