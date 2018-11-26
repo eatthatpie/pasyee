@@ -82,5 +82,10 @@ export default {
     &-center {
         text-align: center;
     }
+
+    &-header {
+        display: block;
+        margin-bottom: 1.6em;
+    }
 }
 </style>
