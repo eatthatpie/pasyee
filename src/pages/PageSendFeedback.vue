@@ -3,7 +3,7 @@
         <div class="container container-space">
             <contents>
                 <div class="contents-center">
-                    <h2>Send Feedback</h2>
+                    <h2 class="contents-header">Send Feedback</h2>
 
                     <p class="contents-extrabig">
                         <i class="icon-feed"></i>
