@@ -1,9 +1,9 @@
 <template>
     <div 
         :class="[ 'lengthbar', { 'is-dragging': isDragging } ]"
-        @mousedown="onStart"
-        @mouseup="onEnd"
-        @mousemove="onMove"
+        @mousedown.prevent="onStart"
+        @mouseup.prevent="onEnd"
+        @mousemove.prevent="onMove"
         @touchstart="onStart"
         @touchend="onEnd"
         @touchmove="onMove"
@@ -85,6 +85,12 @@ export default {
         // TODO: calculate this with reverse function
         this.pointerPositionX = this.pointerPositionStartX * this.width
     },
+    watch: {
+        isDragging: function (value) {
+            // TODO: can it be done better?
+            document.body.style.overflow = value ? 'hidden' : 'visible'
+        }
+    },
     methods: {
         onStart () {
             this.isDragging = true
@@ -127,7 +133,6 @@ export default {
 @import './../assets/scss/variables/_variables.scss';
 
 .lengthbar {
-    @include no-highlight();
     padding: 44px 0 15px;
     cursor: pointer;
 
@@ -195,6 +200,7 @@ export default {
         &-list {
             @include dimensions(100%, 17px);
             @include transition(.15s);
+            @include no-highlight();
             display: inline-block;
 
             > span {

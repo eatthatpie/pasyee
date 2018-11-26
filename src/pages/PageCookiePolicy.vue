@@ -2,7 +2,7 @@
     <div class="__page">
         <div class="container container-space">
             <contents>
-                <h2 class="contents-center">Cookie Policy</h2>
+                <h2 class="contents-center contents-header">Cookie Policy</h2>
 
                 <p><strong>What Are Cookies</strong></p>
                 <p>

@@ -39,4 +39,14 @@ export default {
 
 <style lang="scss">
 @import './assets/scss/app.scss';
+
+#root {
+    &:before {
+        content: '';
+        @include position-fixed-cover();
+        background: $color-primary linear-gradient(135deg, $color-primary, $color-primary-darker, $color-primary-dark);
+        bottom: auto;
+        height: 100%;
+    }
+}
 </style>
