@@ -16,7 +16,7 @@
                         If you want to share your comments on Pasyee, its errors and possible improvements, feel encouraged to email us:
                     </p>
                     <p>
-                        <a class="btn" href="mailto:feedback@pasyee.com">feedback@pasyee.com</a>
+                        <a class="btn" href="mailto:pasyee@gmail.com">pasyee@gmail.com</a>
                     </p>
                 </div>
             </contents>

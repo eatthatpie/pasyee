@@ -1,4 +1,5 @@
 import App from './App.vue'
+import ServiceWorker from './ServiceWorkerRegister.js'
 import store from './store/store'
 import router from './router/router'
 import Vue from 'vue'
@@ -11,4 +12,12 @@ new Vue({
     router,
     store,
     render: h => h(App)
+})
+
+ServiceWorker.register()
+.then(reg => {
+    console.log('[sw] Service worker registration succeed.', reg)
+})
+.catch(error => {
+    console.warn('[sw] Service worker registration failed with message: ' + error)
 })
