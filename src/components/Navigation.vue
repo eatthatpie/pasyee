@@ -1,5 +1,5 @@
 <template>
-    <div class="nav">
+    <div v-click-outside="onClickOutside" class="nav">
         <ul>
             <li>
                 <router-link to="/">Generate Password</router-link>
@@ -28,8 +28,20 @@
 </template>
 
 <script>
-export default {
+import ClickOutside from 'vue-click-outside'
 
+export default {
+    directives: {
+        ClickOutside
+    },
+    methods: {
+        onClickOutside (e) {
+            // @TODO: do this better
+            if (e.target.className !== 'hamburger' && e.target.className !== 'hamburger-overlay' && e.target.className !== 'layout-header-flex') {
+                this.$emit('clickOutside')
+            }
+        }
+    }
 }
 </script>
 
