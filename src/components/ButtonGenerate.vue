@@ -40,8 +40,10 @@ export default {
 @import './../assets/scss/variables/_variables.scss';
 
 .button-generate {
-    padding: 33px 0 13px;
+    position: relative;
     text-align: center;
+    padding: 33px 0 13px;
+    z-index: 1;
 
     > a {
         cursor: pointer;
