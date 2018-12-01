@@ -11,7 +11,7 @@
                 </router-link>
                 <hamburger :is-active="isNavOpen" @click.native="toggleNav" />
             </div>
-            <navigation />
+            <navigation @clickOutside="onClickOutsideNav" />
         </div>
     </header>
 </template>
@@ -47,7 +47,12 @@ export default {
     methods: {
         toggleNav: _.throttle(function() {
             this.isNavOpen = !this.isNavOpen
-        }, 500)
+        }, 300),
+        onClickOutsideNav () {
+            if (this.isNavOpen) {
+                this.isNavOpen = false
+            }
+        }
     },
     watch: {
         $route () {
@@ -66,16 +71,6 @@ export default {
             }
         }
     }
-    // watch: {
-    //     isNavOpen: value => {
-    //         if (value) {
-    //             document.body.classList.add('is-scroll-disabled')
-    //         }
-    //         else {
-    //             document.body.classList.remove('is-scroll-disabled')
-    //         }
-    //     }
-    // }
 }
 </script>
 

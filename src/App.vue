@@ -45,8 +45,8 @@ export default {
         content: '';
         @include position-fixed-cover();
         background: $color-primary linear-gradient(135deg, $color-primary, $color-primary-darker, $color-primary-dark);
-        bottom: auto;
-        height: 100%;
+        bottom: -80px;
+        top: -80px;
     }
 }
 </style>
