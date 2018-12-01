@@ -97,7 +97,7 @@
                     However if you are still looking for more information then you can contact us via e-mail:
                 </p>
                 <p class="contents-center">
-                    <a class="btn" href="mailto:cookies@pasyee.com">cookies@pasyee.com</a>
+                    <a class="btn" href="mailto:pasyee@gmail.com">pasyee@gmail.com</a>
                 </p>
             </contents>
         </div>
