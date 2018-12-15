@@ -1,7 +1,13 @@
 <template>
     <div :class="[ 'password', { 'is-busy': isBusy, 'is-hint': isHint } ]">
-        <div class="password-container" @click="onClick">
-            <div class="password-letters">
+        <div 
+            class="password-container" 
+            title="Tap to copy"
+            @click="onClick"
+        >
+            <div 
+                class="password-letters"
+            >
                 {{ password }}
             </div>
             <loader :is-busy="isBusy" />
@@ -116,9 +122,24 @@ export default {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+        position: relative;
         visibility: visible;
         max-width: 100%;
         opacity: 1;
+
+        &:before {
+            content: '';
+            @include position-cover(-5px);
+            @include border-radius(5px);
+            // @include transform(scale(.8));
+            @include transition(.1s);
+            background-color: $color-primary-dark;
+            display: none;
+            left: -15px;
+            right: -15px;
+            opacity: 0;
+            z-index: -1;
+        }
     }
 
     &-pointer {
@@ -153,6 +174,23 @@ export default {
         &-pointer {
             display: block;
             animation: hintCursor 2.5s ease-in-out 0s infinite;
+        }
+    }
+
+    @media (min-width: $screen-laptop) {
+        &-letters {
+            overflow: visible;
+
+            &:before {
+                display: block;
+            }
+
+            &:hover {
+                &:before {
+                    @include transform-none();
+                    opacity: .61;
+                }
+            }
         }
     }
 }

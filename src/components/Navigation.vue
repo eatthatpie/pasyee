@@ -5,10 +5,7 @@
                 <router-link to="/">Generate Password</router-link>
             </li>
             <li>
-                <a class="is-inactive" href="/pasyee-at-the-home-screen">Pasyee At The Home Screen</a>
-            </li>
-            <li>
-                <a class="is-inactive" href="/whats-new">What's new</a>
+                <a class="is-inactive">Pasyee At The Home Screen</a>
             </li>
             <li>
                 <router-link to="/cookie-policy">Cookie Policy</router-link>
@@ -18,10 +15,16 @@
                 <router-link to="/send-feedback">Send Feedback</router-link>
             </li>
             <li>
-                <a href="https://github.com/eatthatpie/pasyee" target="_blank" ref="noopener">Source on GitHub</a>
+                <a 
+                    rel="noreferrer"
+                    href="https://github.com/eatthatpie/pasyee" 
+                    target="_blank"
+                >
+                    Source on GitHub
+                </a>
             </li>
             <li>
-                <a class="is-inactive" href="/roadmap">Roadmap</a>
+                <router-link to="/roadmap">Roadmap</router-link>
             </li>
         </ul>
     </div>

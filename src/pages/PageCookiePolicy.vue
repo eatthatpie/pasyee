@@ -2,7 +2,7 @@
     <div class="__page">
         <div class="container container-space">
             <contents>
-                <h2 class="contents-center contents-header">Cookie Policy</h2>
+                <h1 class="contents-center contents-header contents-lead">Cookie Policy</h1>
 
                 <p><strong>What Are Cookies</strong></p>
                 <p>
@@ -97,7 +97,7 @@
                     However if you are still looking for more information then you can contact us via e-mail:
                 </p>
                 <p class="contents-center">
-                    <a class="btn" href="mailto:pasyee@gmail.com">pasyee@gmail.com</a>
+                    <a class="btn" href="mailto:pasyeehelp@gmail.com">pasyeehelp@gmail.com</a>
                 </p>
             </contents>
         </div>

@@ -1,0 +1,7 @@
+.visibility {
+    &-laptop {
+        @media (max-width: $screen-laptop - 1px) {
+            display: none;
+        }
+    }
+}

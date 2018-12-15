@@ -2,11 +2,30 @@
     overflow: hidden;
     padding: 0 $value-container-padding;
 
-    &-space {
-        padding-bottom: 2em;
+    & + & {
+        margin-top: 60px;
+    }
+
+    &-flex {
+        display: flex;
+        justify-content: space-between;
+
+        > * {
+            width: calc(50% - 35px);
+        }
     }
 
     @media (min-width: $screen-laptop) {
         padding: 0 $value-container-padding-desktop;
+
+        &-slim {
+            max-width: $screen-tablet;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &.space {
+            padding-bottom: 2em;
+        }
     }
 }
