@@ -40,8 +40,16 @@ export default {
     methods: {
         onClickOutside (e) {
             // @TODO: do this better
-            console.log(e)
-            if (e.target.className !== 'hamburger' && e.target.offsetParent.className !== 'hamburger' && e.target.className !== 'layout-header-flex') {
+            if (!e.target 
+                || (
+                    e.target.className !== 'hamburger'
+                    && (
+                        e.target.offsetParent 
+                        && e.target.offsetParent.className !== 'hamburger'
+                    )
+                    && e.target.className !== 'layout-header-flex'
+                )
+            ) {
                 this.$emit('clickOutside')
             }
         }

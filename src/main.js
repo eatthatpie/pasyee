@@ -5,6 +5,8 @@ import router from './router/router'
 import Vue from 'vue'
 import VueClipboard from 'vue-clipboard2'
 
+Vue.config.productionTip = false
+
 Vue.use(VueClipboard)
 
 new Vue({
