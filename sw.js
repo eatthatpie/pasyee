@@ -1,6 +1,9 @@
 var CACHE_NAME = 'pasyee-cache-v1-b181201-1310';
 var urlsToCache = [
     '/',
+    '/roadmap',
+    '/cookie-policy',
+    '/send-feedback',
     '/dist/build.js',
     '/images/favicon.ico'
 ];
