@@ -1,5 +1,6 @@
 import PageHome from './../pages/PageHome'
 import PageCookiePolicy from './../pages/PageCookiePolicy'
+import PageRoadmap from './../pages/PageRoadmap'
 import PageSendFeedback from './../pages/PageSendFeedback'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -18,6 +19,10 @@ const routes = [
     {
         path: '/send-feedback',
         component: PageSendFeedback
+    },
+    {
+        path: '/roadmap',
+        component: PageRoadmap
     }
 ]
 
