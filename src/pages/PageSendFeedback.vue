@@ -1,9 +1,9 @@
 <template>
     <div class="__page">
-        <div class="container container-space">
+        <div class="container container-slim space">
             <contents>
                 <div class="contents-center">
-                    <h2 class="contents-header">Send Feedback</h2>
+                    <h1 class="contents-header contents-lead">Send Feedback</h1>
 
                     <p class="contents-extrabig">
                         <i class="icon-feed"></i>
@@ -16,7 +16,7 @@
                         If you want to share your comments on Pasyee, its errors and possible improvements, feel encouraged to email us:
                     </p>
                     <p>
-                        <a class="btn" href="mailto:pasyee@gmail.com">pasyee@gmail.com</a>
+                        <a class="btn" href="mailto:pasyeehelp@gmail.com">pasyeehelp@gmail.com</a>
                     </p>
                 </div>
             </contents>

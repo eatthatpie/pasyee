@@ -10,7 +10,11 @@
                         <router-link to="/cookie-policy">Cookie Policy</router-link>
                     </li>
                     <li>
-                        <a href="https://github.com/eatthatpie/pasyee" target="_blank">
+                        <a 
+                            rel="noreferrer"
+                            href="https://github.com/eatthatpie/pasyee" 
+                            target="_blank"
+                        >
                             Source on GitHub
                         </a>
                     </li> 

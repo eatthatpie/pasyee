@@ -15,3 +15,6 @@ yarn-error.log
 
 # google search console
 google*.html
+
+# robots.txt
+robots.txt

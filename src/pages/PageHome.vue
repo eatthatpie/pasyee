@@ -1,9 +1,9 @@
 <template>
     <div class="__page">
-        <div class="container">
+        <div class="container container-slim space">
             <contents>
                 <div class="contents-center">
-                    <h2>Generate Password</h2>
+                    <h1 class="contents-lead">Generate Password</h1>
 
                     <dynamometer :power="strength" />
                     <p class="contents-small">Strength</p>

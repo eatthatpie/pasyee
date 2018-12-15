@@ -87,5 +87,9 @@ export default {
         display: block;
         margin-bottom: 1.6em;
     }
+
+    &-lead {
+        font-size: 1.6rem;
+    }
 }
 </style>
