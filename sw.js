@@ -1,4 +1,4 @@
-var CACHE_NAME = 'pasyee-cache-v1-b181201-1310';
+var CACHE_NAME = 'pasyee-cache-v1-b181215-1247';
 var urlsToCache = [
     '/',
     '/dist/build.js',
@@ -28,24 +28,26 @@ self.addEventListener('activate', function (e) {
 });
 
 self.addEventListener ('fetch', function (e) {
+    const request = e.request;
+
     e.respondWith(
-        caches.match(e.request)
+        fetch(request)
         .then(function (response) {
-            if (response) {
-                return response;
-            }
+            var responseToCache = response.clone();
 
-            var requestOnce = e.request.clone();
+            caches.open(CACHE_NAME)
+            .then(function (cache) {
+                cache.put(request, responseToCache);
+            })
 
-            return fetch(requestOnce).then(function (response) {
-                var responseToCache = response.clone();
-
-                caches.open(CACHE_NAME)
-                .then(function (cache) {
-                    cache.put(e.request, responseToCache);
-                })
-
-                return response;
+            return response;
+        })
+        .catch(function () {
+            caches.open(CACHE_NAME).then(function (cache) {
+                cache.match(e.request)
+                .then(function (response) {
+                    return response;
+                });
             });
         })
     );
