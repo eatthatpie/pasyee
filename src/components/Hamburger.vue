@@ -1,5 +1,11 @@
 <template>
-    <button class="hamburger" :class="{ 'is-active': isActive }">
+    <button 
+        :class="[
+            'hamburger',
+            { 'is-active': isActive }
+        ]"
+        aria-label="Menu"
+    >
         <div class="hamburger-overlay" />
         <div>
             <span v-for="(n, i) in 3" :key="i" />
