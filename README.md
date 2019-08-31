@@ -1,4 +1,4 @@
-## Pasyee 1.0.0
+## Pasyee 1.0.1
 
 See: https://pasyee.com
 
