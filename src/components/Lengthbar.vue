@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import _ from 'lodash'
+import throttle from 'lodash/throttle'
 
 export default {
     props: {
@@ -101,7 +101,7 @@ export default {
             this.$emit('change', this.length)
             this.$emit('input', this.length)
         },
-        onMove: _.throttle(function (e) {
+        onMove: throttle(function (e) {
             if (!this.isDragging) {
                 return
             }

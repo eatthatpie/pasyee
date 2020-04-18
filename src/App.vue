@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import _ from 'lodash'
+import throttle from 'lodash/throttle'
 import LayoutHeader from './layout/LayoutHeader'
 import LayoutMain from './layout/LayoutMain'
 import LayoutFooter from './layout/LayoutFooter'
@@ -29,7 +29,7 @@ export default {
         window.removeEventListener('scroll', this.onScroll)
     },
     methods: {
-        onScroll: _.throttle(function (e) {
+        onScroll: throttle(function (e) {
             this.scrollDirection = window.scrollY - this.scrollY > 0 ? 1 : -1
             this.scrollY = window.scrollY
         }, 100)

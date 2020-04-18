@@ -20,7 +20,7 @@
 import Hamburger from './../components/Hamburger'
 import Logo from './../components/Logo'
 import Navigation from './../components/Navigation'
-import _ from 'lodash'
+import throttle from 'lodash/throttle'
 
 export default {
     components: {
@@ -45,7 +45,7 @@ export default {
         }
     },
     methods: {
-        toggleNav: _.throttle(function() {
+        toggleNav: throttle(function() {
             this.isNavOpen = !this.isNavOpen
         }, 300),
         onClickOutsideNav () {
