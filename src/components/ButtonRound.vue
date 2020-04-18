@@ -10,7 +10,7 @@ currently not in use
 </template>
 
 <script>
-import _ from 'lodash'
+import throttle from 'lodash/throttle'
 
 export default {
     props: {
@@ -25,7 +25,7 @@ export default {
         }
     },
     methods: {
-        onClick: _.throttle(function () {
+        onClick: throttle(function () {
             this.isBusy = true 
 
             this.$emit('click')

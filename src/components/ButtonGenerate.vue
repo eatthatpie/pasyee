@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import throttle from 'lodash/throttle'
+
 export default {
     props: {
         label: {
@@ -22,7 +24,7 @@ export default {
         }
     },
     methods: {
-        onClick: _.throttle(function () {
+        onClick: throttle(function () {
             this.isBusy = true 
 
             this.$emit('click')
