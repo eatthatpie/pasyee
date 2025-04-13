@@ -1,15 +1,22 @@
-.btn {
-    @include transition();
-    @include border-radius(5px);
-    @include box-shadow(0px 0px 16px rgba(0, 0, 0, 0.2));
-    background-color: $color-default;
-    color: $color-primary;
-    font-weight: $font-weight-bold;
-    display: inline-block;
-    padding: 10px 16px;
-    font-size: 1.25rem;
+@use "../mixins/border.scss";
+@use "../mixins/misc.scss";
+@use "../mixins/transform.scss";
+@use "../mixins/transition.scss";
+@use "../variables/color.scss" as colors;
+@use "../variables/font.scss" as fonts;
 
-    &:active {
-        @include transform(scale(.95));
-    }
+.btn {
+  @include transition.transition();
+  @include border.border-radius(5px);
+  @include misc.box-shadow(0px 0px 16px rgba(0, 0, 0, 0.2));
+  background-color: colors.$color-default;
+  color: colors.$color-primary;
+  font-weight: fonts.$font-weight-bold;
+  display: inline-block;
+  padding: 10px 16px;
+  font-size: 1.25rem;
+
+  &:active {
+    @include transform.transform(scale(0.95));
+  }
 }

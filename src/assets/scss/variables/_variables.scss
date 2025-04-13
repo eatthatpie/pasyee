@@ -1,4 +1,4 @@
-@import 'color';
-@import 'font';
-@import 'screen';
-@import 'value';
+@forward "color";
+@forward "font";
+@forward "screen";
+@forward "value";

@@ -1,7 +1,7 @@
-import { Seeder } from './Seeder'
+import { Seeder } from "./Seeder";
 
-const NumbersSeeder = Object.create(Seeder)
+const NumbersSeeder = Object.create(Seeder);
 
-NumbersSeeder.getCharacters = () => '0123456789'
+NumbersSeeder.getCharacters = () => "0123456789";
 
-export { NumbersSeeder }
+export { NumbersSeeder };

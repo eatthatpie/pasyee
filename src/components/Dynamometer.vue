@@ -1,111 +1,107 @@
 <template>
-    <div class="dynamometer" :class="classes">
-        <span v-for="i in 10" :key="i" />
-    </div>
+  <div class="dynamometer" :class="classes">
+    <span v-for="i in 10" :key="i" />
+  </div>
 </template>
 
 <script>
 export default {
-    props: {
-        power: {
-            type: Number,
-            default: 0,
-            validator: value => {
-                return value >= 0 && value <= 100
-            }
-        }
+  props: {
+    power: {
+      type: Number,
+      default: 0,
+      validator: (value) => {
+        return value >= 0 && value <= 100;
+      },
     },
-    computed: {
-        classes () {
-            let out = [],
-                level = Math.ceil(this.power / 10)
+  },
+  computed: {
+    classes() {
+      let out = [],
+        level = Math.ceil(this.power / 10);
 
-            for (let i = 1; i <= level; i++) {
-                out.push('l' + i)
-            }
+      for (let i = 1; i <= level; i++) {
+        out.push("l" + i);
+      }
 
-            return out.join(' ')
-        }
+      return out.join(" ");
     },
-    watch: {
-        power (current, previous) {
-            
-        }
-    },
-    methods: {
-        updateClasses () {
-
-        }
-    }
-}
+  },
+  watch: {
+    power(current, previous) {},
+  },
+  methods: {
+    updateClasses() {},
+  },
+};
 </script>
 
 <style lang="scss">
-@import './../assets/scss/mixins/_mixins.scss';
-@import './../assets/scss/variables/_variables.scss';
+@use "./../assets/scss/mixins/_mixins.scss" as mixins;
+@use "./../assets/scss/variables/_variables.scss" as vars;
 
 .dynamometer {
-    padding: 10px 0 3px;
-    
-    span {
-        background-color: $color-primary-light;
-        display: inline-block;
-        position: relative;
-        margin: 0 2px;
-        width: 4px;
+  padding: 10px 0 3px;
 
-        &:before,
-        &:after {
-            content: '';
-            @include transition();
-            @include transition-delay(.05s);
-            @include position-cover();
-            background-color: $color-default;
-            opacity: 0;
-        }
+  span {
+    background-color: $color-primary-light;
+    display: inline-block;
+    position: relative;
+    margin: 0 2px;
+    width: 4px;
 
-        @for $i from 1 through 10 {
-            &:nth-child(#{$i}) {
-                $h: 4 * $i;
-                height: #{$h}px;
-            }
-        }
+    &:before,
+    &:after {
+      content: "";
+      @include transition();
+      @include transition-delay(0.05s);
+      @include position-cover();
+      background-color: $color-default;
+      opacity: 0;
     }
 
     @for $i from 1 through 10 {
-        &.l#{$i} {
-            span {
-                &:nth-child(#{$i}) {
-                    &:before {
-                        opacity: 1;
-                    }
-
-                    &:after {
-                        animation: testanimation;
-                        animation-duration: .5s;
-                    }
-                }
-            }
-        }
+      &:nth-child(#{$i}) {
+        $h: 4 * $i;
+        height: #{$h}px;
+      }
     }
+  }
 
-    &.l10 {
-        span {
-            &:before {
-                background-color: $color-success-light;
-            }
+  @for $i from 1 through 10 {
+    &.l#{$i} {
+      span {
+        &:nth-child(#{$i}) {
+          &:before {
+            opacity: 1;
+          }
+
+          &:after {
+            animation: testanimation;
+            animation-duration: 0.5s;
+          }
         }
+      }
     }
+  }
+
+  &.l10 {
+    span {
+      &:before {
+        background-color: $color-success-light;
+      }
+    }
+  }
 }
 
 @keyframes testanimation {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    100% {
-        @include transform(scaleY(2.4));
-        opacity: 0;
-    }
+  100% {
+    @include transform(scaleY(2.4));
+    opacity: 0;
+  }
 }
 </style>

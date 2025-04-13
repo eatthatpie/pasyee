@@ -1,7 +1,7 @@
-import { Seeder } from './Seeder'
+import { Seeder } from "./Seeder";
 
-const LightSpecialsSeeder = Object.create(Seeder)
+const LightSpecialsSeeder = Object.create(Seeder);
 
-LightSpecialsSeeder.getCharacters = () => '!#$^-_'
+LightSpecialsSeeder.getCharacters = () => "!#$^-_";
 
-export { LightSpecialsSeeder }
+export { LightSpecialsSeeder };

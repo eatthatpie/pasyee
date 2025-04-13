@@ -1,7 +1,7 @@
-@import 'border';
-@import 'dimensions';
-@import 'hover';
-@import 'misc';
-@import 'position';
-@import 'transform';
-@import 'transition';
+@forward "./border.scss";
+@forward "./dimensions.scss";
+@forward "./hover.scss";
+@forward "./misc.scss";
+@forward "./position.scss";
+@forward "./transform.scss";
+@forward "./transition.scss";

@@ -1,10 +1,10 @@
-@import 'base/normalize';
+@forward "base/normalize";
 
-@import 'mixins/mixins';
-@import 'variables/variables';
+@forward "mixins/mixins";
+@forward "variables/variables";
 
-@import 'base/base';
-@import 'base/font';
-@import 'base/icon';
+@forward "base/base";
+@forward "base/font";
+@forward "base/icon";
 
-@import 'globals/globals';
+@forward "globals/globals";

@@ -1,12 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from "vuex";
+import HintAnimationModule from "./modules/HintAnimation";
 
-Vue.use(Vuex)
+const store = createStore({
+  modules: {
+    HintAnimationModule,
+  },
+});
 
-import HintAnimationModule from './modules/HintAnimation'
-
-export default new Vuex.Store({
-    modules: { 
-        HintAnimationModule 
-    }
-})
+export default store;

@@ -1,95 +1,95 @@
 <template>
-    <div class="contents">
-        <div v-if="html" v-html="html" />
+  <div class="contents">
+    <div v-if="html" v-html="html" />
 
-        <slot></slot>
-    </div>
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
-    props: {
-        html: {
-            type: String,
-            required: false
-        }
-    }
-}
+  props: {
+    html: {
+      type: String,
+      required: false,
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-@import './../assets/scss/mixins/_mixins.scss';
-@import './../assets/scss/variables/_variables.scss';
+@use "./../assets/scss/mixins/_mixins.scss" as mixins;
+@use "./../assets/scss/variables/_variables.scss" as vars;
 
 .contents {
-    h1 + h1,
-    h2 + h2,
-    h3 + h3,
-    h4 + h4,
-    h5 + h5,
-    h6 + h6 {
-        margin-top: -.5em;
+  h1 + h1,
+  h2 + h2,
+  h3 + h3,
+  h4 + h4,
+  h5 + h5,
+  h6 + h6 {
+    margin-top: -0.5em;
+  }
+
+  p {
+    font-size: $font-size-default;
+    line-height: 1.5rem;
+    margin: 0;
+
+    &:nth-of-type(n + 2) {
+      margin-top: 1.5em;
     }
 
-    p {
-        font-size: $font-size-default;
-        line-height: 1.5rem;
-        margin: 0;
+    &.contents {
+      &-big {
+        font-size: 1.25rem;
+      }
 
-        &:nth-of-type(n + 2) {
-            margin-top: 1.5em;
-        }
+      &-extrabig {
+        font-size: 2.5rem;
+      }
 
-        &.contents {
-            &-big {
-                font-size: 1.25rem;
-            }
-
-            &-extrabig {
-                font-size: 2.5rem;
-            }
-
-            &-small {
-                font-size: .88em;
-            }
-        }
+      &-small {
+        font-size: 0.88em;
+      }
     }
+  }
 
-    ul {
-        list-style-type: none;
+  ul {
+    list-style-type: none;
 
-        li {
-            position: relative;
-            line-height: 24px;
-            margin-top: .5em;
-            padding-left: 20px;
+    li {
+      position: relative;
+      line-height: 24px;
+      margin-top: 0.5em;
+      padding-left: 20px;
 
-            &:before {
-                content: '';
-                @include dimensions(6px);
-                background-color: $color-default;
-                position: absolute;
-                left: 0;
-                top: 8px;
-            }
-        }
+      &:before {
+        content: "";
+        @include dimensions(6px);
+        background-color: $color-default;
+        position: absolute;
+        left: 0;
+        top: 8px;
+      }
     }
+  }
 
-    strong {
-        font-weight: $font-weight-bold;
-    }
+  strong {
+    font-weight: $font-weight-bold;
+  }
 
-    &-center {
-        text-align: center;
-    }
+  &-center {
+    text-align: center;
+  }
 
-    &-header {
-        display: block;
-        margin-bottom: 1.6em;
-    }
+  &-header {
+    display: block;
+    margin-bottom: 1.6em;
+  }
 
-    &-lead {
-        font-size: 1.6rem;
-    }
+  &-lead {
+    font-size: 1.6rem;
+  }
 }
 </style>

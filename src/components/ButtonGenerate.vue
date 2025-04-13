@@ -1,61 +1,54 @@
 <template>
-    <div :class="[ 'button-generate', { 'is-busy': isBusy } ]">
-        <a 
-            v-text="label"
-            class="btn"
-            @click="onClick" 
-        />
-    </div>
+  <div :class="['button-generate', { 'is-busy': isBusy }]">
+    <a v-text="label" class="btn" @click="onClick" />
+  </div>
 </template>
 
 <script>
-import throttle from 'lodash/throttle'
+import throttle from "lodash/throttle";
 
 export default {
-    props: {
-        label: {
-            type: String,
-            default: 'button'
-        }
+  props: {
+    label: {
+      type: String,
+      default: "button",
     },
-    data () {
-        return {
-            isBusy: false
-        }
-    },
-    methods: {
-        onClick: throttle(function () {
-            this.isBusy = true 
+  },
+  data() {
+    return {
+      isBusy: false,
+    };
+  },
+  methods: {
+    onClick: throttle(function () {
+      this.isBusy = true;
 
-            this.$emit('click')
+      this.$emit("click");
 
-            setTimeout (() => {
-                this.isBusy = false
-            }, 601)
-        }, 601)
-    }
-}
+      setTimeout(() => {
+        this.isBusy = false;
+      }, 601);
+    }, 601),
+  },
+};
 </script>
 
 <style lang="scss">
-@import './../assets/scss/mixins/_mixins.scss';
-@import './../assets/scss/variables/_variables.scss';
-
 .button-generate {
-    position: relative;
-    text-align: center;
-    padding: 33px 0 13px;
-    z-index: 1;
+  position: relative;
+  text-align: center;
+  padding: 33px 0 13px;
+  z-index: 1;
 
+  > a {
+    cursor: pointer;
+  }
+
+  @media (min-width: $screen-laptop) {
     > a {
-        cursor: pointer;
+      padding: 8px 30px;
+      font-size: 1.5rem;
     }
-
-    @media (min-width: $screen-laptop) {
-        > a {
-            padding: 8px 30px;
-            font-size: 1.5rem;
-        }
-    }
+  }
 }
 </style>
