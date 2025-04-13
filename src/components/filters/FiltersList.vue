@@ -1,7 +1,7 @@
 <template>
   <div :class="['filters-list', { 'is-inactive': !isActive }]">
     <div
-      v-for="item in value"
+      v-for="item in modelValue"
       :key="item.label"
       :class="['filters-item', { 'is-active': item.isActive }]"
       @click="isActive ? (item.isActive = !item.isActive) : null"
@@ -18,7 +18,7 @@
 <script>
 export default {
   props: {
-    value: {
+    modelValue: {
       type: Array,
       required: true,
     },

@@ -18,9 +18,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use "./../assets/scss/mixins/_mixins.scss" as mixins;
-@use "./../assets/scss/variables/_variables.scss" as vars;
-
 .contents {
   h1 + h1,
   h2 + h2,

@@ -94,9 +94,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use "./../assets/scss/mixins/_mixins.scss" as mixins;
-@use "./../assets/scss/variables/_variables.scss" as vars;
-
 .password {
   font-family: $font-family-password;
   font-size: $font-size-password;

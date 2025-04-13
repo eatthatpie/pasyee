@@ -143,9 +143,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use "./../assets/scss/mixins/_mixins.scss" as mixins;
-@use "./../assets/scss/variables/_variables.scss" as vars;
-
 .lengthbar {
   padding: 44px 0 15px;
   cursor: pointer;

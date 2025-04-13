@@ -1,11 +1,8 @@
 <template>
-  <div v-click-outside="onClickOutside" class="nav">
+  <div class="nav">
     <ul>
       <li>
         <router-link to="/">Generate Password</router-link>
-      </li>
-      <li>
-        <a class="is-inactive">Pasyee At The Home Screen</a>
       </li>
       <li>
         <router-link to="/cookie-policy">Cookie Policy</router-link>
@@ -29,30 +26,6 @@
     </ul>
   </div>
 </template>
-
-<script>
-import ClickOutside from "vue-click-outside";
-
-export default {
-  directives: {
-    ClickOutside,
-  },
-  methods: {
-    onClickOutside(e) {
-      // @TODO: do this better
-      if (
-        !e.target ||
-        (e.target.className !== "hamburger" &&
-          e.target.offsetParent &&
-          e.target.offsetParent.className !== "hamburger" &&
-          e.target.className !== "layout-header-flex")
-      ) {
-        this.$emit("clickOutside");
-      }
-    },
-  },
-};
-</script>
 
 <style lang="scss">
 @use "sass:math";

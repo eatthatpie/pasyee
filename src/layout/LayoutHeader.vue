@@ -14,7 +14,7 @@
         </router-link>
         <hamburger :is-active="isNavOpen" @click.native="toggleNav" />
       </div>
-      <navigation @clickOutside="onClickOutsideNav" />
+      <navigation />
     </div>
   </header>
 </template>
@@ -50,7 +50,7 @@ export default {
     };
   },
   methods: {
-    toggleNav: throttle(function () {
+    toggleNav: throttle(() => {
       this.isNavOpen = !this.isNavOpen;
     }, 300),
     onClickOutsideNav() {
@@ -63,14 +63,14 @@ export default {
     $route() {
       this.isNavOpen = false;
     },
-    scrollY: function (value) {
+    scrollY: (value) => {
       this.isTransparent = value === 0;
 
       if (value > this.breakpointHide && this.scrollDirection > 0) {
         this.isHidden = true;
       }
     },
-    scrollDirection: function (value) {
+    scrollDirection: (value) => {
       if (value < 0) {
         this.isHidden = false;
       }
@@ -80,9 +80,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use "./../assets/scss/mixins/_mixins.scss" as mixins;
-@use "./../assets/scss/variables/_variables.scss" as vars;
-
 .layout-header {
   @include transition(
     background-color 0.9s,

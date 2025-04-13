@@ -16,38 +16,6 @@
       inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
     >
       <defs id="defs2" />
-      <sodipodi:namedview
-        id="base"
-        pagecolor="#ffffff"
-        bordercolor="#666666"
-        borderopacity="1.0"
-        inkscape:pageopacity="0.0"
-        inkscape:pageshadow="2"
-        inkscape:zoom="1.4"
-        inkscape:cx="5.5813106"
-        inkscape:cy="-60.242209"
-        inkscape:document-units="mm"
-        inkscape:current-layer="layer1"
-        showgrid="false"
-        inkscape:window-width="1920"
-        inkscape:window-height="1017"
-        inkscape:window-x="-8"
-        inkscape:window-y="-5"
-        inkscape:window-maximized="1"
-        fit-margin-bottom="0.3"
-        fit-margin-top="0"
-        fit-margin-left="0"
-        fit-margin-right="0"
-      />
-      <metadata id="metadata5">
-        <rdf:RDF>
-          <cc:Work rdf:about="">
-            <dc:format>image/svg+xml</dc:format>
-            <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-            <dc:title></dc:title>
-          </cc:Work>
-        </rdf:RDF>
-      </metadata>
       <g
         inkscape:label="Layer 1"
         inkscape:groupmode="layer"
@@ -114,9 +82,6 @@ export default {};
 </script>
 
 <style lang="scss">
-@use "./../assets/scss/mixins/_mixins.scss" as mixins;
-@use "./../assets/scss/variables/_variables.scss" as vars;
-
 .logo {
   text-align: center;
   padding: 21px 0 3px;

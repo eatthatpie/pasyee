@@ -113,9 +113,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use "./../assets/scss/mixins/_mixins.scss" as mixins;
-@use "./../assets/scss/variables/_variables.scss" as vars;
-
 .filters {
   @include transition(0.3s);
   position: relative;

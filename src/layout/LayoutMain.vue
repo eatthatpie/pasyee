@@ -1,8 +1,8 @@
 <template>
   <main class="layout-main">
-    <router-view v-slot="{ Component }">
-      <transition name="zoom" mode="out-in">
-        <component :is="Component" />
+    <router-view v-slot="{ Component, route }">
+      <transition name="zoom" mode="out-in" appear>
+        <component :is="Component" :key="route.path" />
       </transition>
     </router-view>
   </main>
@@ -30,7 +30,7 @@ export default {};
   opacity: 1;
 }
 
-.zoom-enter {
+.zoom-enter-from {
   @include transform(translateY(-10px));
   opacity: 0;
 }
