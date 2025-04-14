@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import ClickOutside from "vue-click-outside";
 import FiltersList from "./filters/FiltersList.vue";
 import {
   LettersSeeder,
@@ -32,10 +31,11 @@ import {
   LightSpecialsSeeder,
   HeavySpecialsSeeder,
 } from "./../plugins/generator/Seeders";
+import vClickOutside from "click-outside-vue3";
 
 export default {
   directives: {
-    ClickOutside,
+    clickOutside: vClickOutside.directive,
   },
   components: {
     FiltersList,
