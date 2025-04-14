@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130248755-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-130248755-1');
-        </script>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#cc2c26">
-        <meta name="description" content="No password ideas? Generate some!">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-130248755-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-130248755-1");
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#cc2c26" />
+    <meta name="description" content="No password ideas? Generate some!" />
 
-        <title>Generate Password @ Pasyee</title>
+    <title>Generate Password with Pasyee</title>
 
-        <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-        <link rel="manifest" href="/manifest.json">
-    </head>
-    <body>
-        <noscript>
-            Your browser's engine does not support JavaScript.
-            JavaScript is essential for Pasyee to run.
-            Please, enable JavaScript or download a browser that supports the JS.
-        </noscript>
-        <div id="root"></div>
-        <script src="/dist/build.js?ts=181215-1432"></script>
-    </body>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="/manifest.json" />
+  </head>
+  <body>
+    <noscript>
+      Your browser's engine does not support JavaScript. JavaScript is essential
+      for Pasyee to run. Please, enable JavaScript or download a browser that
+      supports the JS.
+    </noscript>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

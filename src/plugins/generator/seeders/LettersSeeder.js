@@ -1,7 +1,7 @@
-import { Seeder } from './Seeder'
+import { Seeder } from "./Seeder";
 
-const LettersSeeder = Object.create(Seeder)
+const LettersSeeder = Object.create(Seeder);
 
-LettersSeeder.getCharacters = () => 'qwertyuiopasdfghjklzxcvbnm'
+LettersSeeder.getCharacters = () => "qwertyuiopasdfghjklzxcvbnm";
 
-export { LettersSeeder }
+export { LettersSeeder };

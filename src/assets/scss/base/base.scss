@@ -1,37 +1,46 @@
+@use "./../mixins/misc" as misc;
+@use "./../variables/color.scss" as colors;
+@use "./../variables/font.scss" as fonts;
+
 * {
-    @include tap-color(rgba(255, 255, 255, 0));
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  @include misc.tap-color(rgba(255, 255, 255, 0));
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
-    color: $color-primary;
-    text-decoration: none;
+  color: colors.$color-primary;
+  text-decoration: none;
 }
 
 body {
-    background: $color-primary-semidark;
-    color: $color-default;
-    font-family: $font-family-default;
-    font-size: $font-size-default;
-    font-weight: $font-weight-light;
-    height: auto;
+  background: colors.$color-primary-semidark;
+  color: colors.$color-default;
+  font-family: fonts.$font-family-default;
+  font-size: fonts.$font-size-default;
+  font-weight: fonts.$font-weight-light;
+  height: auto;
 
-    &.is-scroll-disabled {
-        overflow: hidden;
-    }
+  &.is-scroll-disabled {
+    overflow: hidden;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: $font-weight-light;
-    margin: 0 0 .8em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: fonts.$font-weight-light;
+  margin: 0 0 0.8em;
 }
 
 html {
-    min-height: 100%;
+  min-height: 100%;
 }
 
 ul {
-    padding: 0;
+  padding: 0;
 }

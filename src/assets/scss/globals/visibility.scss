@@ -1,7 +1,9 @@
+@use "../variables//screen.scss";
+
 .visibility {
-    &-laptop {
-        @media (max-width: $screen-laptop - 1px) {
-            display: none;
-        }
+  &-laptop {
+    @media (max-width: screen.$screen-laptop - 1px) {
+      display: none;
     }
+  }
 }

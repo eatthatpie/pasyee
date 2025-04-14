@@ -1,7 +1,7 @@
-import { Seeder } from './Seeder'
+import { Seeder } from "./Seeder";
 
-const HeavySpecialsSeeder = Object.create(Seeder)
+const HeavySpecialsSeeder = Object.create(Seeder);
 
-HeavySpecialsSeeder.getCharacters = () => '@%&*()+=|,.<>/?;:{}[]'
+HeavySpecialsSeeder.getCharacters = () => "@%&*()+=|,.<>/?;:{}[]";
 
-export { HeavySpecialsSeeder }
+export { HeavySpecialsSeeder };
