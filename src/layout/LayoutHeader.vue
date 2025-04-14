@@ -12,22 +12,18 @@
         <router-link to="/">
           <logo />
         </router-link>
-        <hamburger :is-active="isNavOpen" @click.native="toggleNav" />
+        <navigation @toggle="onNavigationToggle" />
       </div>
-      <navigation />
     </div>
   </header>
 </template>
 
 <script>
-import Hamburger from "./../components/Hamburger.vue";
 import Logo from "./../components/Logo.vue";
 import Navigation from "./../components/Navigation.vue";
-import throttle from "lodash/throttle";
 
 export default {
   components: {
-    Hamburger,
     Logo,
     Navigation,
   },
@@ -50,27 +46,19 @@ export default {
     };
   },
   methods: {
-    toggleNav: throttle(() => {
-      this.isNavOpen = !this.isNavOpen;
-    }, 300),
-    onClickOutsideNav() {
-      if (this.isNavOpen) {
-        this.isNavOpen = false;
-      }
+    onNavigationToggle: function (isNavVisible) {
+      this.isNavOpen = isNavVisible;
     },
   },
   watch: {
-    $route() {
-      this.isNavOpen = false;
-    },
-    scrollY: (value) => {
+    scrollY: function (value) {
       this.isTransparent = value === 0;
 
       if (value > this.breakpointHide && this.scrollDirection > 0) {
         this.isHidden = true;
       }
     },
-    scrollDirection: (value) => {
+    scrollDirection: function (value) {
       if (value < 0) {
         this.isHidden = false;
       }
