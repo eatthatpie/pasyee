@@ -1,23 +1,17 @@
 <template>
   <footer class="layout-footer">
     <div class="container">
-      <div class="layout-footer-text">&copy; eatthatpie 2018.</div>
       <div class="layout-footer-links">
         <ul>
           <li>
-            <router-link to="/cookie-policy">Cookie Policy</router-link>
+            <router-link to="/cookie-policy">Terms</router-link>
           </li>
           <li>
-            <a
-              rel="noreferrer"
-              href="https://github.com/eatthatpie/pasyee"
-              target="_blank"
-            >
-              Source on GitHub
-            </a>
+            <router-link to="/cookie-policy">Privacy</router-link>
           </li>
         </ul>
       </div>
+      <div class="layout-footer-text">&copy; pasyee.com 2025</div>
     </div>
   </footer>
 </template>

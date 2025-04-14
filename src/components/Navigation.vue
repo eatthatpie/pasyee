@@ -10,24 +10,9 @@
         <li>
           <router-link to="/">Generate Password</router-link>
         </li>
-        <li>
-          <router-link to="/cookie-policy">Cookie Policy</router-link>
-        </li>
         <li class="separator" />
         <li>
           <router-link to="/send-feedback">Send Feedback</router-link>
-        </li>
-        <li>
-          <a
-            rel="noreferrer"
-            href="https://github.com/eatthatpie/pasyee"
-            target="_blank"
-          >
-            Source on GitHub
-          </a>
-        </li>
-        <li>
-          <router-link to="/roadmap">Roadmap</router-link>
         </li>
       </ul>
     </div>
