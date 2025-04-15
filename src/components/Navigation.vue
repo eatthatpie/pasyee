@@ -1,21 +1,19 @@
 <template>
-  <div
-    class="nav-container"
-    :class="{ 'is-nav-open': isNavOpen }"
-    v-click-outside="onClickOutsideNav"
-  >
-    <hamburger :is-active="isNavOpen" @click.native="toggleNav" />
-    <div class="nav">
-      <ul>
-        <li>
-          <router-link to="/">Generate Password</router-link>
-        </li>
-        <li class="separator" />
-        <li>
-          <router-link to="/send-feedback">Send Feedback</router-link>
-        </li>
-      </ul>
+  <div v-click-outside="onClickOutsideNav">
+    <div class="nav-container" :class="{ 'is-nav-open': isNavOpen }">
+      <div class="nav">
+        <ul>
+          <li>
+            <router-link to="/">Generate Password</router-link>
+          </li>
+          <li class="separator" />
+          <li>
+            <router-link to="/send-feedback">Send Feedback</router-link>
+          </li>
+        </ul>
+      </div>
     </div>
+    <hamburger :is-active="isNavOpen" @click.native="toggleNav" />
   </div>
 </template>
 
@@ -75,6 +73,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    pointer-events: none;
     top: 0;
   }
 
@@ -119,6 +118,10 @@ export default {
   .is-nav-open & {
     visibility: visible;
     opacity: 1;
+
+    &-container {
+      pointer-events: all;
+    }
 
     li {
       @include transform-reset();
