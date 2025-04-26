@@ -4,10 +4,10 @@
       <div class="layout-footer-links">
         <ul>
           <li>
-            <router-link to="/cookie-policy">Terms</router-link>
+            <router-link to="/terms">Terms</router-link>
           </li>
           <li>
-            <router-link to="/cookie-policy">Privacy</router-link>
+            <router-link to="/privacy-policy">Privacy</router-link>
           </li>
         </ul>
       </div>

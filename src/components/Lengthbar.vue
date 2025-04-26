@@ -161,6 +161,7 @@ export default {
     @include transition();
     @include dimensions(100%, 5px);
     background-color: $color-primary-light;
+    border-radius: 3px;
     position: relative;
     z-index: 2;
   }

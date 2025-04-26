@@ -27,7 +27,10 @@
 
       <filters ref="filters" />
 
-      <button-generate label="generate" @click="onRefreshButtonClick" />
+      <button-generate
+        label="Generate password"
+        @clicked="onRefreshButtonClick"
+      />
     </div>
 
     <alert ref="alert" />
@@ -68,7 +71,10 @@ export default {
   methods: {
     generatePassword() {
       this.password.seeders = this.$refs.filters.getCharactersFilters();
-      this.$refs.password.generate();
+
+      setTimeout(() => {
+        this.$refs.password.generate();
+      });
     },
     onRefreshButtonClick() {
       setTimeout(() => {
@@ -77,8 +83,12 @@ export default {
 
       this.generatePassword();
     },
-    onPasswordLengthChange() {
-      this.generatePassword();
+    onPasswordLengthChange(length) {
+      this.password.length = length;
+
+      setTimeout(() => {
+        this.generatePassword();
+      });
     },
     onPasswordCopy() {
       this.$refs.alert.open(

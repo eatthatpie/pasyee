@@ -8,7 +8,10 @@
           </li>
           <li class="separator" />
           <li>
-            <router-link to="/send-feedback">Send Feedback</router-link>
+            <router-link to="/privacy-policy">Privacy</router-link>
+          </li>
+          <li>
+            <router-link to="/terms">Terms</router-link>
           </li>
         </ul>
       </div>

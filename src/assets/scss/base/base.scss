@@ -21,6 +21,7 @@ body {
   font-size: fonts.$font-size-default;
   font-weight: fonts.$font-weight-light;
   height: auto;
+  user-select: none;
 
   &.is-scroll-disabled {
     overflow: hidden;

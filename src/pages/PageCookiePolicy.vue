@@ -1,115 +1,106 @@
 <template>
   <div class="__page">
-    <div class="container container-space">
+    <div class="container container-slim space">
       <contents>
         <h1 class="contents-center contents-header contents-lead">
-          Cookie Policy
+          Privacy Policy
         </h1>
-
-        <p><strong>What Are Cookies</strong></p>
+        <p><strong>1. Information Collection</strong></p>
         <p>
-          As is common practice with almost all professional websites this site
-          uses cookies, which are tiny files that are downloaded to your
-          computer, to improve your experience. This page describes what
-          information they gather, how we use it and why we sometimes need to
-          store these cookies. We will also share how you can prevent these
-          cookies from being stored however this may downgrade or 'break'
-          certain elements of the sites functionality.
-        </p>
-        <p>
-          For more general information on cookies see the Wikipedia article on
-          HTTP Cookies.
-        </p>
-        <p>
-          <strong>How We Use Cookies</strong>
-        </p>
-        <p>
-          We use cookies for a variety of reasons detailed below. Unfortunately
-          in most cases there are no industry standard options for disabling
-          cookies without completely disabling the functionality and features
-          they add to this site. It is recommended that you leave on all cookies
-          if you are not sure whether you need them or not in case they are used
-          to provide a service that you use.
-        </p>
-
-        <p>
-          <strong>Disabling Cookies</strong>
-        </p>
-        <p>
-          You can prevent the setting of cookies by adjusting the settings on
-          your browser (see your browser Help for how to do this). Be aware that
-          disabling cookies will affect the functionality of this and many other
-          websites that you visit. Disabling cookies will usually result in also
-          disabling certain functionality and features of the this site.
-          Therefore it is recommended that you do not disable cookies.
-        </p>
-        <p>
-          <strong>Third Party Cookies</strong>
-        </p>
-        <p>
-          In some special cases we also use cookies provided by trusted third
-          parties. The following section details which third party cookies you
-          might encounter through this site.
+          We collect minimal data to improve the user experience and provide our
+          services:
         </p>
         <ul>
           <li>
-            This site uses Google Analytics which is one of the most widespread
-            and trusted analytics solution on the web for helping us to
-            understand how you use the site and ways that we can improve your
-            experience. These cookies may track things such as how long you
-            spend on the site and the pages that you visit so we can continue to
-            produce engaging content.
+            <strong>Account Data</strong>: If you create an account, we collect
+            your email address for login purposes.
+          </li>
+          <li>
+            <strong>Usage Data</strong>: We use Google Analytics to collect
+            anonymous usage data (such as pages visited, time spent on the site,
+            etc.).
           </li>
         </ul>
-        <p>
-          For more information on Google Analytics cookies, see the official
-          Google Analytics page.
-        </p>
+
+        <p><strong>2. Data Usage</strong></p>
         <ul>
           <li>
-            Third party analytics are used to track and measure usage of this
-            site so that we can continue to produce engaging content. These
-            cookies may track things such as how long you spend on the site or
-            pages you visit which helps us to understand how we can improve the
-            site for you.
+            <strong>Password Data</strong>: We do not store, log, or process
+            passwords you generate on Pasyee.com.
           </li>
           <li>
-            As we sell products it's important for us to understand statistics
-            about how many of the visitors to our site actually make a purchase
-            and as such this is the kind of data that these cookies will track.
-            This is important to you as it means that we can accurately make
-            business predictions that allow us to monitor our advertising and
-            product costs to ensure the best possible price.
+            <strong>Account Data</strong>: Your email address is used solely for
+            managing your account and providing access to advanced features.
           </li>
           <li>
-            We also use social media buttons and/or plugins on this site that
-            allow you to connect with your social network in various ways. For
-            these to work the following social media sites including; {List the
-            social networks whose features you have integrated with your
-            site?:12}, will set cookies through our site which may be used to
-            enhance your profile on their site or contribute to the data they
-            hold for various purposes outlined in their respective privacy
-            policies.
+            <strong>Analytics</strong>: Google Analytics tracks anonymous usage
+            data to improve the performance and functionality of the Service.
           </li>
         </ul>
+
+        <p><strong>3. Data Retention</strong></p>
         <p>
-          <strong>More Information</strong>
+          We retain account data (e.g., email addresses) only for as long as
+          necessary to provide the Service to you. If you delete your account,
+          all personal data associated with your account will be removed.
         </p>
+
+        <p><strong>4. Third-Party Services</strong></p>
+        <ul>
+          <li>
+            <strong>Google Analytics</strong>: We use Google Analytics to
+            collect anonymous usage data for the purpose of improving the
+            Service.
+          </li>
+          <li>
+            <strong>Firebase Authentication</strong>: We use Firebase
+            Authentication for user sign-in and account management. Firebase
+            does not store your passwords.
+          </li>
+        </ul>
+
+        <p><strong>5. Security</strong></p>
         <p>
-          Hopefully that has clarified things for you and as was previously
-          mentioned if there is something that you aren't sure whether you need
-          or not it's usually safer to leave cookies enabled in case it does
-          interact with one of the features you use on our site. This Cookies
-          Policy was created with the help of the GDPR Cookies Policy Generator.
+          We take reasonable measures to protect your account and data. However,
+          we cannot guarantee the security of your data due to the inherent
+          risks of internet transmission.
         </p>
+
+        <p><strong>6. Cookies</strong></p>
         <p>
-          However if you are still looking for more information then you can
-          contact us via e-mail:
+          We may use cookies to improve the functionality and user experience of
+          the Service. You can disable cookies in your browser settings.
         </p>
-        <p class="contents-center">
-          <a class="btn" href="mailto:pasyeehelp@gmail.com"
-            >pasyeehelp@gmail.com</a
-          >
+
+        <p><strong>7. User Rights</strong></p>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Access, update, or delete your account information.</li>
+          <li>
+            Opt out of tracking by Google Analytics by using browser settings or
+            extensions that block tracking.
+          </li>
+        </ul>
+
+        <p><strong>8. Children’s Privacy</strong></p>
+        <p>
+          Our Service is not intended for children under 13. We do not knowingly
+          collect personal data from children under 13. If you believe we have
+          inadvertently collected such data, please contact us to have it
+          removed.
+        </p>
+
+        <p><strong>9. Changes to This Privacy Policy</strong></p>
+        <p>
+          We may update this Privacy Policy from time to time. Any changes will
+          be posted on this page, and your continued use of the Service after
+          such changes constitutes acceptance of the updated Privacy Policy.
+        </p>
+
+        <p><strong>10. Contact Information</strong></p>
+        <p>
+          If you have any questions about these Terms or our Privacy Policy,
+          please contact us at tomek.pugn@gmail.com.
         </p>
       </contents>
     </div>

@@ -4,7 +4,7 @@
       <a class="filters-label" @click="isCharactersOpen = true">
         <span>characters...</span>
       </a>
-      <a class="filters-label is-inactive" @click="isConstraintsOpen = true">
+      <a class="filters-label" @click="isConstraintsOpen = true">
         <span>constraints...</span>
       </a>
     </div>
@@ -16,7 +16,7 @@
         <filters-list v-model="charactersFilters" />
       </div>
       <div class="filters-leaf" :class="{ 'is-open': isConstraintsOpen }">
-        <filters-list :is-active="false" v-model="constraintsFilters" />
+        <filters-list v-model="constraintsFilters" />
       </div>
     </div>
   </div>
@@ -24,13 +24,6 @@
 
 <script>
 import FiltersList from "./filters/FiltersList.vue";
-import {
-  LettersSeeder,
-  CapitalLettersSeeder,
-  NumbersSeeder,
-  LightSpecialsSeeder,
-  HeavySpecialsSeeder,
-} from "./../plugins/generator/Seeders";
 import vClickOutside from "click-outside-vue3";
 
 export default {
@@ -48,24 +41,28 @@ export default {
         {
           label: "capital letters",
           isActive: true,
-          seeder: CapitalLettersSeeder,
+          key: "capitalLetters",
         },
-        { label: "numbers", isActive: true, seeder: NumbersSeeder },
+        {
+          label: "numbers",
+          isActive: true,
+          key: "numbers",
+        },
         {
           label: "light specials",
           isActive: true,
-          seeder: LightSpecialsSeeder,
+          key: "lightSpecials",
         },
         {
           label: "heavy specials",
           isActive: false,
-          seeder: HeavySpecialsSeeder,
+          key: "heavySpecials",
         },
       ],
       constraintsFilters: [
         { label: "easy to say", isActive: false },
         { label: "easy to read", isActive: false },
-        { label: "easy to remember", isActive: true },
+        { label: "easy to remember", isActive: false },
       ],
     };
   },
@@ -88,13 +85,9 @@ export default {
       }
     },
     getCharactersFilters() {
-      return [LettersSeeder].concat(
-        this.charactersFilters
-          .filter((v) => v.isActive === true)
-          .map((v) => {
-            return v.seeder;
-          })
-      );
+      return this.charactersFilters
+        .filter((v) => v.isActive === true)
+        .map((v) => v.key);
     },
   },
   watch: {
@@ -140,6 +133,7 @@ export default {
     @include transition(0.2s);
     @include position-cover();
     background-color: $color-primary-light;
+    border-radius: 3px;
     pointer-events: all;
     top: 100%;
     height: 100%;
@@ -156,6 +150,7 @@ export default {
   &-label {
     color: $color-default;
     background-color: $color-primary-light;
+    border-radius: 3px;
     text-align: center;
     display: block;
     cursor: pointer;

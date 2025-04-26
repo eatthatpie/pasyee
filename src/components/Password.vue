@@ -14,14 +14,9 @@
 
 <script>
 import Loader from "./Loader.vue";
-import { PasswordGenerator } from "./../plugins/generator/PasswordGenerator";
-import { PasswordStrength } from "./../plugins/password-strength/PasswordStrength";
-import {
-  LettersSeeder,
-  NumbersSeeder,
-  LightSpecialsSeeder,
-  HeavySpecialsSeeder,
-} from "./../plugins/generator/Seeders";
+import { apiGeneratePassword } from "../api";
+import { delay } from "../utilts";
+import { throttle } from "lodash";
 
 export default {
   components: {
@@ -38,28 +33,16 @@ export default {
       default: [],
     },
   },
+  created() {
+    this.generate = throttle(this._generate, 1000);
+  },
   data() {
     return {
-      generator: PasswordGenerator,
       password: "",
       strength: 0,
       isBusy: false,
       isHint: false,
     };
-  },
-  watch: {
-    length: {
-      handler: (value) => {
-        PasswordGenerator.setLength(value);
-      },
-      immediate: true,
-    },
-    seeders: {
-      handler: (value) => {
-        PasswordGenerator.setSeeders(value);
-      },
-      immediate: true,
-    },
   },
   methods: {
     onClick() {
@@ -71,23 +54,26 @@ export default {
     stopHintAnimation() {
       this.isHint = false;
     },
-    generate() {
+    async _generate() {
       this.isBusy = true;
       this.isHint = false;
 
-      setTimeout(() => {
-        this.isBusy = false;
-        this.password = PasswordGenerator.generate();
-        this.strength = PasswordStrength.getStrength(this.password);
+      const [response] = await Promise.all([
+        apiGeneratePassword(["letters", ...this.seeders], this.length),
+        delay(500),
+      ]);
 
-        if (this.$store.getters["isHintAnimationEnabled"]) {
-          this.isHint = true;
-        }
+      this.isBusy = false;
+      this.password = response.password;
+      this.strength = response.strength;
 
-        this.$emit("change", {
-          strength: this.strength,
-        });
-      }, 610);
+      if (this.$store.getters["isHintAnimationEnabled"]) {
+        this.isHint = true;
+      }
+
+      this.$emit("change", {
+        strength: this.strength,
+      });
     },
   },
 };

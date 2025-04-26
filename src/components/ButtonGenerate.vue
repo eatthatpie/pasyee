@@ -23,7 +23,7 @@ export default {
     onClick: throttle(function () {
       this.isBusy = true;
 
-      this.$emit("click");
+      this.$emit("clicked");
 
       setTimeout(() => {
         this.isBusy = false;
@@ -41,13 +41,17 @@ export default {
   z-index: 1;
 
   > a {
+    border-radius: 3px;
+    box-shadow: none;
     cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 900;
   }
 
   @media (min-width: $screen-laptop) {
     > a {
       padding: 8px 30px;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
   }
 }

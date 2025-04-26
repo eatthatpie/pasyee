@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import PageHome from "./../pages/PageHome.vue";
 import PageCookiePolicy from "./../pages/PageCookiePolicy.vue";
-import PageRoadmap from "./../pages/PageRoadmap.vue";
+import PageTerms from "./../pages/PageTerms.vue";
 import PageSendFeedback from "./../pages/PageSendFeedback.vue";
 
 const routes = [
@@ -10,7 +10,7 @@ const routes = [
     component: PageHome,
   },
   {
-    path: "/cookie-policy",
+    path: "/privacy-policy",
     component: PageCookiePolicy,
   },
   {
@@ -18,8 +18,8 @@ const routes = [
     component: PageSendFeedback,
   },
   {
-    path: "/roadmap",
-    component: PageRoadmap,
+    path: "/terms",
+    component: PageTerms,
   },
 ];
 
